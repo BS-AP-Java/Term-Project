@@ -31,7 +31,7 @@ public class Main extends JFrame {
 	}
 	
 	public void paint(Graphics g) {
-		g.drawString("Kwun is cool.", 350, 300);
+		g.drawString("Kwun is cool kid.", 350, 300);
 	}
 
 }
