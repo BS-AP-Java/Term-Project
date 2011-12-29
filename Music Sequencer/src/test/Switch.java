@@ -21,7 +21,7 @@ public class Switch {
 	      windowedModeHeight = dim.height;
 	      windowedModeX = 0;
 	      windowedModeY = 0;
-	   
+	      
 	      // Need to get the graphic device for switching into the fullscreen mode
 	      final GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 	      final JFrame frame = new JFrame();
@@ -38,7 +38,7 @@ public class Switch {
 	         frame.setResizable(true);
 	         fullScreenMode = true;
 	      }
-	   
+	      
 	      currentWindowWidth = frame.getWidth();
 	      currentWindowHeight = frame.getHeight();
 	      frame.setContentPane(new DrawPanel());
