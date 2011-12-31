@@ -4,13 +4,10 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-public class FullScreen extends ScreenManager {
-	GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-	GraphicsDevice gd = ge.getDefaultScreenDevice();
-	GraphicsConfiguration gc = gd.getDefaultConfiguration();
+public class FullScreen extends Skin {
 	
-	public FullScreen(Canvas c) {
-		super(c);
+	public FullScreen() {
+		
 	}
 	
 	public DisplayMode[] getCompatibleDisplayModes() {
@@ -48,6 +45,15 @@ public class FullScreen extends ScreenManager {
 			match = false;
 		}
 		return match;
+	}
+	
+	public void changeDisplayMode(DisplayMode dm) {
+		if(dm != null && gd.isDisplayChangeSupported()) {
+			try {
+				gd.setDisplayMode(dm);
+			} catch(Exception e) {
+			}
+		}
 	}
 	
 	public void setFullScreen(DisplayMode dm) {
@@ -93,17 +99,6 @@ public class FullScreen extends ScreenManager {
 			g2D = null;
 		}
 		return g2D;
-	}
-	
-	public void update() {
-		Window window = gd.getFullScreenWindow();
-		
-		if(window != null) {
-			BufferStrategy bufferStrategy = window.getBufferStrategy();
-			if(!bufferStrategy.contentsLost()) {
-				bufferStrategy.show();
-			}
-		}
 	}
 	
 	public Window getFullScreenWindow() {
