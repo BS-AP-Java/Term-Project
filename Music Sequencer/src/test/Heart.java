@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 public abstract class Heart {
-	protected FullScreen fullScreen = new FullScreen();
+	protected Body body = new Body();
 	public boolean running = true;
 	public int fps = 0;
     public int frames = 0;
@@ -34,7 +34,7 @@ public abstract class Heart {
 	
 	public void loop() {
 		while(running == true) {
-			Graphics2D g2D = fullScreen.getGraphics();
+			Graphics2D g2D = body.getGraphics();
 			try {
 				// count Frames per second...
 		        lastTime = curTime;
