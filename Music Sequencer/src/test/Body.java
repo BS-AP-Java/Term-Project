@@ -15,7 +15,6 @@ public class Body {
 	public int windowedModeX, windowedModeY;
 	public int currentWindowWidth, currentWindowHeight;
 	public final JFrame frame;
-	private Dimension dim;
 	public GraphicsEnvironment ge;
     public GraphicsDevice gd;
     public GraphicsConfiguration gc;
@@ -26,9 +25,8 @@ public class Body {
 		gc = gd.getDefaultConfiguration();
 		fullScreenMode = false;
 		frame = new JFrame();
-		dim = Toolkit.getDefaultToolkit().getScreenSize();
-		windowedModeWidth = dim.width;
-	    windowedModeHeight = dim.height;
+		windowedModeWidth = 800;
+	    windowedModeHeight = 600;
 	    windowedModeX = 0;
 	    windowedModeY = 0;
 	    currentWindowWidth = frame.getWidth();
@@ -99,6 +97,7 @@ public class Body {
 			}
 		}
 		
+		/**
 		frame.addKeyListener(new KeyAdapter() {
 	         @Override
 	         public void keyPressed(KeyEvent e) {
@@ -118,6 +117,7 @@ public class Body {
 	            }
 	         }
 	      });
+	      **/
     }
 	
 	public Graphics2D getGraphics() {
