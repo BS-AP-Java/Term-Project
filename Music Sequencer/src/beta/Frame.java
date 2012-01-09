@@ -25,6 +25,7 @@ public class Frame extends JFrame {
 		setTitle("Music Sequencer");
 		pack();
 		setVisible(true);
+		createBufferStrategy(2);
 	}
 	
 	public void apply() {
