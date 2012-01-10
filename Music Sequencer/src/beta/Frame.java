@@ -1,53 +1,100 @@
 package beta;
 
-import java.awt.*;
+import java.awt.DisplayMode;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Window;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-public class Frame extends JFrame {
+import reference.FullScreen;
+
+public class Frame {
 	public static boolean fullScreen;
 	public static int windowWidth, windowHeight, windowX, windowY;
+	public static JFrame jframe;
 	private GraphicsDevice gd;
 	
-	public Frame(Panel panel) {
-		super();
+	public Frame() {
+		jframe = new JFrame();
 		fullScreen = false;
 		windowWidth = 800;
 		windowHeight = 600;
 		windowX = 0;
 		windowY = 0;
 		gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		setBounds(windowX, windowY, windowWidth, windowHeight);
-		setResizable(true);
-		setContentPane(panel);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Music Sequencer");
-		pack();
-		setVisible(true);
-		createBufferStrategy(2);
+		jframe.setResizable(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setTitle("Music Sequencer");
+		jframe.pack();
+		jframe.setBounds(windowX, windowY, windowWidth, windowHeight);
+		jframe.setVisible(true);
+		jframe.createBufferStrategy(2);
 	}
 	
 	public void apply() {
-        this.setVisible(false); // Hide the display
-        if (isDisplayable())
-           this.dispose();      // Dispose it
+        jframe.setVisible(false); // Hide the display
+        if (jframe.isDisplayable()) {
+           jframe.dispose();      // Dispose it
+        }
         if (fullScreen) {    // Put into full screen mode
-           windowX = this.getX();
-           windowY = this.getY();
+           windowX = jframe.getX();
+           windowY = jframe.getY();
            if (gd.isFullScreenSupported()) {
-              this.setUndecorated(true);
-              this.setResizable(false);
-              gd.setFullScreenWindow(this);
+              jframe.setUndecorated(true);
+              jframe.setResizable(false);
+              gd.setFullScreenWindow(jframe);
            }
         } else { // Put into windowed mode
-           this.setUndecorated(false);      // Put the title and border back
+           jframe.setUndecorated(false);      // Put the title and border back
            gd.setFullScreenWindow(null); // windowed mode
-           this.setBounds(windowX, windowY, windowWidth, windowHeight);
-           this.setResizable(true);
+           jframe.setBounds(windowX, windowY, windowWidth, windowHeight);
+           jframe.setResizable(true);
         }
-        this.setVisible(true); // Show it again
+        jframe.setVisible(true); // Show it again
 	}
+	
+	public Graphics2D getGraphics() {
+		jframe.setVisible(true);
+		BufferStrategy bs = null;
+		try {
+		bs = jframe.getBufferStrategy();
+		} catch(Exception e) {
+			System.out.println("ERRROR");
+		}
+		if(bs != null) {
+		return (Graphics2D)bs.getDrawGraphics();
+		} else {
+			return null;
+		}
+    }
+	
+	//method to update display
+    public void update() {
+    	BufferStrategy bs = null;
+		try {
+		bs = jframe.getBufferStrategy();
+		} catch(Exception e) {
+			System.out.println("ERRROR");
+		}
+		if(bs != null) {
+			//check if the there is content in the full screen window
+	        if(!bs.contentsLost()) {
+	            //if there is content, show it on the full screen window
+	            bs.show();
+	        }
+		} else {
+			
+		}
+    }
+    
+    public JFrame getFrame() {
+    	return jframe;
+    }
 	
 ////////////////////Full Screen Stuff/////////////////////////////////
 	
@@ -55,9 +102,9 @@ public class Frame extends JFrame {
 		return gd.getDisplayModes();
 	}
 
-	public DisplayMode findFirstCompatibleMode(DisplayMode modes[]) {
+	public DisplayMode findFirstCompatibleMode(DisplayMode[] modes) {
 		DisplayMode mode = null;
-		DisplayMode goodModes[] = gd.getDisplayModes();
+		DisplayMode[] goodModes = gd.getDisplayModes();
 		
 		for(int i = 0; i < modes.length; i++) {
 			for(int idx = 0; idx < goodModes.length; idx++) {
@@ -99,10 +146,10 @@ public class Frame extends JFrame {
 
 	public void setFullScreen(DisplayMode dm) {
 		if(gd.isFullScreenSupported()) {
-			this.setUndecorated(true);
-			this.setIgnoreRepaint(true);
-			this.setResizable(false);
-			gd.setFullScreenWindow(this);
+			jframe.setUndecorated(true);
+			jframe.setIgnoreRepaint(true);
+			jframe.setResizable(false);
+			gd.setFullScreenWindow(jframe);
 			if(dm != null && gd.isDisplayChangeSupported()) {
 				try {
 					gd.setDisplayMode(dm);
@@ -115,11 +162,11 @@ public class Frame extends JFrame {
 
 	public void setFullScreen() {
 		if(gd.isFullScreenSupported()) {
-			this.setUndecorated(true);
-			this.setIgnoreRepaint(true);
-			this.setResizable(false);
-			this.setVisible(false);
-			gd.setFullScreenWindow(this);
+			jframe.setUndecorated(true);
+			jframe.setIgnoreRepaint(true);
+			jframe.setResizable(false);
+			jframe.setVisible(false);
+			gd.setFullScreenWindow(jframe);
 			if(gd.isDisplayChangeSupported()) {
 				try {
 					gd.setDisplayMode(findFirstCompatibleMode(getCompatibleDisplayModes()));

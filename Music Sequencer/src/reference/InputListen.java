@@ -19,7 +19,7 @@ public class InputListen extends Core implements KeyListener, MouseMotionListene
         //inherit from the core class's init method
         super.init();
         //store full screen window in w
-        //Window w = screen.getFullScreenWindow();
+        Window w = screen.getFullScreenWindow();
         //set buttons like tab not function like tab is supposed to but become normal buttons
         FullScreen.frame.setFocusTraversalKeysEnabled(false);
         //add keylistener to this window
