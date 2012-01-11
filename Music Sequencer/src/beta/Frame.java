@@ -1,9 +1,11 @@
 package beta;
 
+import java.awt.Dimension;
 import java.awt.DisplayMode;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
 
@@ -15,14 +17,18 @@ public class Frame {
 	public static int windowWidth, windowHeight, windowX, windowY;
 	public static JFrame jframe;
 	private GraphicsDevice gd;
+	Toolkit toolkit;
+	Dimension dim;
 	
 	public Frame(JPanel pane) {
 		jframe = new JFrame();
 		fullScreen = false;
 		windowWidth = 800;
 		windowHeight = 600;
-		windowX = 0;
-		windowY = 0;
+		toolkit =  Toolkit.getDefaultToolkit();
+		dim = toolkit.getScreenSize();
+		windowX = (dim.width - windowWidth)/2;
+		windowY = (dim.height - windowHeight)/2;
 		gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		jframe.setResizable(true);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
