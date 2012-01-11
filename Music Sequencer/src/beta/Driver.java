@@ -1,6 +1,6 @@
 package beta;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -17,7 +17,6 @@ public class Driver extends Backbone implements KeyListener, MouseMotionListener
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//Frame frame = new Frame();
 		new Driver().run();
 	}
 	
@@ -33,6 +32,9 @@ public class Driver extends Backbone implements KeyListener, MouseMotionListener
         f.setFocusTraversalKeysEnabled(false);
         //add keylistener to this window
         f.addKeyListener(this);
+        f.addMouseListener(this);
+        f.addMouseMotionListener(this);
+        f.addMouseWheelListener(this);
         msg = "Press escape to exit";
     }
 
@@ -116,15 +118,14 @@ public class Driver extends Backbone implements KeyListener, MouseMotionListener
 
     //paint graphics(pictures/images)
     //and no other methods can run while its running
-    public synchronized void paint(Graphics2D g) {
-        //get the full screen window and store it in w
-        JFrame f = frame.getFrame();
-        //set drawing color to background color
-        g.setColor(f.getBackground());
+    public synchronized void paintComponent(Graphics g) {
+    	JFrame f = frame.getFrame();
+    	//set drawing color to background color
+        g.setColor(this.getBackground());
         //draw a filled rectangle starting at position 0,0(upperleft corner) with width and height of screen
         g.fillRect(0, 0, f.getWidth(), f.getHeight());
         //change drawing color to foreground color
-        g.setColor(f.getForeground());
+        g.setColor(this.getForeground());
         g.drawString(msg, 60, 60);
     }
 

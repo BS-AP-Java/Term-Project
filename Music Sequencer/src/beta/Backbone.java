@@ -1,13 +1,14 @@
 package beta;
 
 import java.awt.Color;
-import java.awt.DisplayMode;
+import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public abstract class Backbone {
+public class Backbone extends JPanel {
 	public static boolean running;
 	protected Frame frame;
 	
@@ -37,19 +38,19 @@ public abstract class Backbone {
     //sets up screen
     public void init() {
         //construct screen object
-        frame = new Frame();
+        frame = new Frame(this);
         //find compatible screen mode and store it in dm
-        DisplayMode dm = frame.getCurrentDisplayMode();
+        //DisplayMode dm = frame.getCurrentDisplayMode();
         //set to full screen
         //frame.setFullScreen(dm);
         //gets the full screen window and stores it in w
         JFrame f = frame.getFrame();
         //set font style, type, and size
-        f.setFont(new Font("Arial", Font.PLAIN, 20));
+        this.setFont(new Font("Arial", Font.PLAIN, 20));
         //set background color to black
-        f.setBackground(Color.BLACK);
+        this.setBackground(Color.BLACK);
         //set foreground color to white
-        f.setForeground(Color.white);
+        this.setForeground(Color.white);
         running = true;
     }
 
@@ -68,13 +69,13 @@ public abstract class Backbone {
             //call update method
             update(timePassed);
             //get graphics object from the screen and store it in g
-            Graphics2D g = (Graphics2D)frame.getGraphics();
+            //Graphics2D g = (Graphics2D)this.getGraphics();
             //paint graphics
-            paint(g);
+            this.repaint();
             //dispose of graphic object
-            g.dispose();
+            //g.dispose();
             //update screen
-            frame.update();
+            //frame.update();
             try {
                 Thread.sleep(20);
             } catch(Exception ex) {
@@ -85,11 +86,22 @@ public abstract class Backbone {
 
     //update animation
     public void update(long timePassed) {
-
+    	
     }
 
+    /**
     //paints graphics(pictures/images)
     public void paint(Graphics2D g) {
-
+    	
     }
+    **/
+    
+    public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+	}
+	
+	public Dimension getPreferredSize() {
+        return new Dimension(Frame.windowWidth, Frame.windowHeight);
+     }
+	
 }

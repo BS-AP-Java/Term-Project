@@ -1,17 +1,14 @@
 package beta;
 
 import java.awt.DisplayMode;
-import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Window;
-import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
-
-import reference.FullScreen;
+import javax.swing.JPanel;
 
 public class Frame {
 	public static boolean fullScreen;
@@ -19,7 +16,7 @@ public class Frame {
 	public static JFrame jframe;
 	private GraphicsDevice gd;
 	
-	public Frame() {
+	public Frame(JPanel pane) {
 		jframe = new JFrame();
 		fullScreen = false;
 		windowWidth = 800;
@@ -30,6 +27,7 @@ public class Frame {
 		jframe.setResizable(true);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setTitle("Music Sequencer");
+		jframe.setContentPane(pane);
 		jframe.pack();
 		jframe.setBounds(windowX, windowY, windowWidth, windowHeight);
 		jframe.setVisible(true);
@@ -58,21 +56,13 @@ public class Frame {
         jframe.setVisible(true); // Show it again
 	}
 	
+	/**
 	public Graphics2D getGraphics() {
-		jframe.setVisible(true);
-		BufferStrategy bs = null;
-		try {
-		bs = jframe.getBufferStrategy();
-		} catch(Exception e) {
-			System.out.println("ERRROR");
-		}
-		if(bs != null) {
-		return (Graphics2D)bs.getDrawGraphics();
-		} else {
-			return null;
-		}
+		return (Graphics2D)jframe.getGraphics();
     }
+    **/
 	
+	/**
 	//method to update display
     public void update() {
     	BufferStrategy bs = null;
@@ -91,6 +81,7 @@ public class Frame {
 			
 		}
     }
+    **/
     
     public JFrame getFrame() {
     	return jframe;
