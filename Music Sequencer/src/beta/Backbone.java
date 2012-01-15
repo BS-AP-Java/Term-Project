@@ -11,7 +11,10 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -20,6 +23,8 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	protected Frame frame;
 	private String msg;//string to hold words
 	private JFrame f;
+	private BufferedImage bg;
+	private File bgURL;
 	
 	//method to stop the program
     public void stop() {
@@ -46,21 +51,27 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 
     //sets up screen
     public void init() {
-    	msg = "Press Esc to exit";
-        //construct screen object
-        frame = new Frame(this);
-        f = frame.getFrame();
-        //set font style, type, and size
-        this.setFont(new Font("Arial", Font.PLAIN, 20));
-        //set background color to black
-        this.setBackground(Color.BLACK);
-        //set foreground color to white
-        this.setForeground(Color.white);
-        f.addKeyListener(this);
-        f.addMouseListener(this);
-        f.addMouseMotionListener(this);
-        f.addMouseWheelListener(this);
-        running = true;
+    	try {
+	    	bgURL = new File("resources//Images//looseleaf.png");
+	    	bg = ImageIO.read(bgURL);
+	    	msg = "Press Esc to exit";
+	        //construct screen object
+	        frame = new Frame(this);
+	        f = frame.getFrame();
+	        //set font style, type, and size
+	        this.setFont(new Font("Arial", Font.PLAIN, 20));
+	        //set background color to black
+	        this.setBackground(Color.white);
+	        //set foreground color to white
+	        this.setForeground(Color.black);
+	        f.addKeyListener(this);
+	        f.addMouseListener(this);
+	        f.addMouseMotionListener(this);
+	        f.addMouseWheelListener(this);
+	        running = true;
+    	} catch(Exception e) {
+    		
+    	}
     }
 
     //main loop that keeps program running
@@ -88,7 +99,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
             try {
                 Thread.sleep(20);
             } catch(Exception ex) {
-
+            	
             }
         }
     }
@@ -108,9 +119,10 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		//set drawing color to background color
-        g.setColor(this.getBackground());
+        //g.setColor(this.getBackground());
         //draw a filled rectangle starting at position 0,0(upperleft corner) with width and height of screen
-        g.fillRect(0, 0, f.getWidth(), f.getHeight());
+        //g.fillRect(0, 0, f.getWidth(), f.getHeight());
+		g.drawImage(bg, 0, 0, f.getWidth(), f.getHeight(), this);
         //change drawing color to foreground color
         g.setColor(this.getForeground());
         g.drawString(msg, 60, 60);
