@@ -25,6 +25,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private JFrame f;
 	private BufferedImage bg;
 	private File bgURL;
+	private SoundManager sm;
 	
 	//method to stop the program
     public void stop() {
@@ -68,6 +69,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
+	        sm = new SoundManager();
 	        running = true;
     	} catch(Exception e) {
     		
@@ -122,7 +124,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
         //g.setColor(this.getBackground());
         //draw a filled rectangle starting at position 0,0(upperleft corner) with width and height of screen
         //g.fillRect(0, 0, f.getWidth(), f.getHeight());
-		g.drawImage(bg, 0, 0, f.getWidth(), f.getHeight(), this);
+		g.drawImage(bg, 0, 0, f.getWidth(), f.getHeight(), null);
         //change drawing color to foreground color
         g.setColor(this.getForeground());
         g.drawString(msg, 60, 60);
@@ -176,6 +178,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     public void mousePressed(MouseEvent e) {
         //display message when mouse is pressed
         msg = "You pressed down the mouse";
+        sm.play();
     }
 
     public void mouseReleased(MouseEvent e) {
