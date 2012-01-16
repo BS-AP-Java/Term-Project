@@ -25,7 +25,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private JFrame f;
 	private BufferedImage bg;
 	private File bgURL;
-	private SoundManager sm;
+	private SoundManager soundManager;
 	
 	//method to stop the program
     public void stop() {
@@ -53,6 +53,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     //sets up screen
     public void init() {
     	try {
+    		soundManager = new SoundManager();
 	    	bgURL = new File("resources//Images//looseleaf.png");
 	    	bg = ImageIO.read(bgURL);
 	    	msg = "Press Esc to exit";
@@ -69,7 +70,6 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
-	        sm = new SoundManager();
 	        running = true;
     	} catch(Exception e) {
     		
@@ -178,7 +178,12 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     public void mousePressed(MouseEvent e) {
         //display message when mouse is pressed
         msg = "You pressed down the mouse";
-        sm.play();
+        try {
+        	soundManager.play();
+        } catch(Exception ex) {
+        	System.err.println(ex.getMessage());
+        	ex.printStackTrace();
+        }
     }
 
     public void mouseReleased(MouseEvent e) {
