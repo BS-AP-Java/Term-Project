@@ -18,9 +18,8 @@ import javax.sound.sampled.Clip;
 public class SoundManager {
 	private File bassDrumDir, clickDir, doubleBassDir, pianoDir, snareDrumDir;
 	private File[] bassDrumFiles, clickFiles, doubleBassFiles, pianoFiles, snareDrumFiles;
-	private Sequencer sq;
-	private ArrayList<Sequence> sequences;
-	private ArrayList<Sequencer> sequencers;
+	private Sequencer bassDrumSequencer, clickSequencer, doubleBassSequencer, pianoSequencer, snareDrumSequencer;
+	private ArrayList<Sequence> bassDrumSequences, clickSequences, doubleBassSequences, pianoSequences, snareDrumSequences;
 
 	public SoundManager() {
 		bassDrumDir = new File("resources//Sounds//Bass Drum");
@@ -28,8 +27,11 @@ public class SoundManager {
 		doubleBassDir = new File("resources//Sounds//Double Bass");
 		pianoDir = new File("resources//Sounds//Piano");
 		snareDrumDir = new File("resources//Sounds//Snare Drum");
-		sequences = new ArrayList<Sequence>();
-		sequencers = new ArrayList<Sequencer>();
+		bassDrumSequences = new ArrayList<Sequence>();
+		clickSequences = new ArrayList<Sequence>();
+		doubleBassSequences = new ArrayList<Sequence>();
+		pianoSequences = new ArrayList<Sequence>();
+		snareDrumSequences = new ArrayList<Sequence>();
 		loadSounds();
 	}
 	
@@ -40,21 +42,41 @@ public class SoundManager {
 		pianoFiles = pianoDir.listFiles();
 		snareDrumFiles = snareDrumDir.listFiles();
 		try {
+			for(int i = 0; i < bassDrumFiles.length; i++) {
+				Sequence seq = MidiSystem.getSequence(bassDrumFiles[i]);
+				bassDrumSequences.add(seq);
+			}
+			for(int i = 0; i < clickFiles.length; i++) {
+				Sequence seq = MidiSystem.getSequence(clickFiles[i]);
+				clickSequences.add(seq);
+			}
+			for(int i = 0; i < doubleBassFiles.length; i++) {
+				Sequence seq = MidiSystem.getSequence(doubleBassFiles[i]);
+				doubleBassSequences.add(seq);
+			}
 			for(int i = 0; i < pianoFiles.length; i++) {
 				Sequence seq = MidiSystem.getSequence(pianoFiles[i]);
-				sequences.add(seq);
+				pianoSequences.add(seq);
 			}
-			/**
-			for(int i = 0; i < sequences.size(); i++) {
-				Sequencer sqr = MidiSystem.getSequencer();
-				//sqr.open();
-				sqr.setSequence(sequences.get(i));
-				sequencers.add(sqr);
+			for(int i = 0; i < snareDrumFiles.length; i++) {
+				Sequence seq = MidiSystem.getSequence(snareDrumFiles[i]);
+				snareDrumSequences.add(seq);
 			}
-			**/
-			sq = MidiSystem.getSequencer();
-			sq.open();
-			sq.setSequence(sequences.get(0));
+			bassDrumSequencer = MidiSystem.getSequencer();
+			clickSequencer = MidiSystem.getSequencer();
+			doubleBassSequencer = MidiSystem.getSequencer();
+			pianoSequencer = MidiSystem.getSequencer();
+			snareDrumSequencer = MidiSystem.getSequencer();
+			bassDrumSequencer.open();
+			clickSequencer.open();
+			doubleBassSequencer.open();
+			pianoSequencer.open();
+			snareDrumSequencer.open();
+			bassDrumSequencer.setSequence(bassDrumSequences.get(0));
+			clickSequencer.setSequence(clickSequences.get(0));
+			doubleBassSequencer.setSequence(doubleBassSequences.get(0));
+			pianoSequencer.setSequence(pianoSequences.get(0));
+			snareDrumSequencer.setSequence(snareDrumSequences.get(0));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -71,6 +93,22 @@ public class SoundManager {
 	
 	public void play() {
 		/**
+		 * use this method!
+		 * there can only be 16 sequencers because of the 16 channels in midi!
+		 * reuse the sequencer like in this method to play another sound
+		 */
+		for(int i = 0; i < pianoSequences.size(); i++) {
+			try {
+				pianoSequencer.stop();
+				pianoSequencer.setSequence(pianoSequences.get(i));
+				pianoSequencer.setTickPosition(0);
+				pianoSequencer.start();
+				Thread.sleep(750);
+			} catch(Exception e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		/**
 		for(int i = 0; i < sequencers.size(); i++) {
 			try {
 				sequencers.get(i).open();
@@ -85,30 +123,9 @@ public class SoundManager {
 			}
 		}
 		**/
-		/**
-		 * use this method!
-		 * there can only be 16 sequencers because of the 16 channels in midi!
-		 * reuse the sequencer like in this method to play another sound
-		 */
-		for(int i = 0; i < sequences.size(); i++) {
-			try {
-				sq.stop();
-				sq.setSequence(sequences.get(i));
-				sq.setTickPosition(0);
-				sq.start();
-				Thread.sleep(750);
-			} catch(Exception e) {
-				System.err.println(e.getMessage());
-			}
-		}
 		//sq.stop();
 		//sq.setTickPosition(0);
 		//sq.start();
-		/**
-		sound.stop();
-		sound.setFramePosition(0);
-		sound.start();
-		**/
 	}
 	
 	/**
