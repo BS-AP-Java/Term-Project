@@ -20,6 +20,7 @@ public class SoundManager {
 	private File[] bassDrumFiles, clickFiles, doubleBassFiles, pianoFiles, snareDrumFiles;
 	private Sequencer bassDrumSequencer, clickSequencer, doubleBassSequencer, pianoSequencer, snareDrumSequencer;
 	private ArrayList<Sequence> bassDrumSequences, clickSequences, doubleBassSequences, pianoSequences, snareDrumSequences;
+	private ArrayList<Integer> bassDrumRow, clickRow, doubleBassRow, pianoRow, snareDrumRow;
 
 	public SoundManager() {
 		bassDrumDir = new File("resources//Sounds//Bass Drum");
@@ -32,6 +33,11 @@ public class SoundManager {
 		doubleBassSequences = new ArrayList<Sequence>();
 		pianoSequences = new ArrayList<Sequence>();
 		snareDrumSequences = new ArrayList<Sequence>();
+		bassDrumRow = new ArrayList<Integer>();
+		clickRow = new ArrayList<Integer>();
+		doubleBassRow = new ArrayList<Integer>();
+		pianoRow = new ArrayList<Integer>();
+		snareDrumRow = new ArrayList<Integer>();
 		loadSounds();
 	}
 	
@@ -91,6 +97,119 @@ public class SoundManager {
 		**/
 	}
 	
+	public void bassDrumAddNote(int note) {
+		Integer num = new Integer(note);
+		bassDrumRow.add(num);
+	}
+	
+	public void clickAddNote(int note) {
+		Integer num = new Integer(note);
+		clickRow.add(num);
+	}
+	
+	public void doubleBassAddNote(int note) {
+		Integer num = new Integer(note);
+		doubleBassRow.add(num);
+	}
+	
+	public void pianoAddNote(int note) {
+		Integer num = new Integer(note);
+		pianoRow.add(num);
+	}
+	
+	public void snareDrumAddNote(int note) {
+		Integer num = new Integer(note);
+		snareDrumRow.add(num);
+	}
+	
+	public void bassDrumPlay(int note) {
+		try {
+			bassDrumSequencer.stop();
+			bassDrumSequencer.setSequence(bassDrumSequences.get(note));
+			bassDrumSequencer.setTickPosition(0);
+			bassDrumSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void clickPlay(int note) {
+		try {
+			clickSequencer.stop();
+			clickSequencer.setSequence(clickSequences.get(note));
+			clickSequencer.setTickPosition(0);
+			clickSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void doubleBassPlay(int note) {
+		try {
+			doubleBassSequencer.stop();
+			doubleBassSequencer.setSequence(doubleBassSequences.get(note));
+			doubleBassSequencer.setTickPosition(0);
+			doubleBassSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void pianoPlay(int note) {
+		try {
+			pianoSequencer.stop();
+			pianoSequencer.setSequence(pianoSequences.get(note));
+			pianoSequencer.setTickPosition(0);
+			pianoSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void snareDrumPlay(int note) {
+		try {
+			snareDrumSequencer.stop();
+			snareDrumSequencer.setSequence(snareDrumSequences.get(note));
+			snareDrumSequencer.setTickPosition(0);
+			snareDrumSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void play(String instrument, int note) {
+		try {
+			if(instrument.equals("bassDrum")) {
+				bassDrumSequencer.stop();
+				bassDrumSequencer.setSequence(bassDrumSequences.get(note));
+				bassDrumSequencer.setTickPosition(0);
+				bassDrumSequencer.start();
+			} else if(instrument.equals("click")) {
+				clickSequencer.stop();
+				clickSequencer.setSequence(clickSequences.get(note));
+				clickSequencer.setTickPosition(0);
+				clickSequencer.start();
+			} else if(instrument.equals("doubleBass")) {
+				doubleBassSequencer.stop();
+				doubleBassSequencer.setSequence(doubleBassSequences.get(note));
+				doubleBassSequencer.setTickPosition(0);
+				doubleBassSequencer.start();
+			} else if(instrument.equals("piano")) {
+				pianoSequencer.stop();
+				pianoSequencer.setSequence(pianoSequences.get(note));
+				pianoSequencer.setTickPosition(0);
+				pianoSequencer.start();
+			} else if(instrument.equals("snareDrum")) {
+				snareDrumSequencer.stop();
+				snareDrumSequencer.setSequence(snareDrumSequences.get(note));
+				snareDrumSequencer.setTickPosition(0);
+				snareDrumSequencer.start();
+			}
+		} catch(Exception e) {
+			
+		}
+	}
+	
 	public void play() {
 		/**
 		 * use this method!
@@ -127,19 +246,6 @@ public class SoundManager {
 		//sq.setTickPosition(0);
 		//sq.start();
 	}
-	
-	/**
-	public void playSound() {
-			try {
-	          Clip clip = AudioSystem.getClip();
-	          AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("resources//Sounds//test.wav"));
-	          clip.open(inputStream);
-	          clip.start();
-	        } catch (Exception e) {
-	          System.err.println(e.getMessage());
-	        }
-	}
-	**/
 	
 	/**
 	 * use this to close a sequencer once the track has finished playing

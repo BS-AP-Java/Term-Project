@@ -2,6 +2,7 @@ package beta;
 
 import java.awt.Dimension;
 import java.awt.DisplayMode;
+import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -11,6 +12,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 
 public class Frame {
 	public static boolean fullScreen;
@@ -41,6 +43,7 @@ public class Frame {
 	}
 	
 	public void apply() {
+		/**
         jframe.setVisible(false); // Hide the display
         if (jframe.isDisplayable()) {
            jframe.dispose();      // Dispose it
@@ -49,7 +52,8 @@ public class Frame {
            windowX = jframe.getX();
            windowY = jframe.getY();
            if (gd.isFullScreenSupported()) {
-              jframe.setUndecorated(true);
+              //jframe.setUndecorated(true);
+        	  jframe.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
               jframe.setResizable(false);
               gd.setFullScreenWindow(jframe);
            }
@@ -60,6 +64,7 @@ public class Frame {
            jframe.setResizable(true);
         }
         jframe.setVisible(true); // Show it again
+        **/
 	}
 	
 	/**
@@ -178,23 +183,50 @@ public class Frame {
 	}
 
 	public void restoreScreen() {
+		/**
 		Window window = gd.getFullScreenWindow();
 
 		if(window != null) {
 			window.dispose();
 		}
+		**/
 		gd.setFullScreenWindow(null);
 	}
 
-	public BufferedImage createCompatibleImage(int width, int height, int transparency) {
-		Window w = gd.getFullScreenWindow();
+	public BufferedImage createCompatibleImage(BufferedImage image) {
 		BufferedImage bufferedImage = null;
-
-		if(w != null) {
-			GraphicsConfiguration graphicsConfig = w.getGraphicsConfiguration();
-			bufferedImage = graphicsConfig.createCompatibleImage(width, height, transparency);
-		}
+		GraphicsConfiguration graphicsConfig = jframe.getGraphicsConfiguration();
+		bufferedImage = graphicsConfig.createCompatibleImage(image.getWidth(), image.getHeight());
 		return bufferedImage;
+	}
+	
+	public BufferedImage toCompatibleImage(BufferedImage image)
+	{
+	        // obtain the current system graphical settings
+	        GraphicsConfiguration gfx_config = GraphicsEnvironment.
+	                getLocalGraphicsEnvironment().getDefaultScreenDevice().
+	                getDefaultConfiguration();
+
+	        /*
+	         * if image is already compatible and optimized for current system 
+	         * settings, simply return it
+	         */
+	        if (image.getColorModel().equals(gfx_config.getColorModel()))
+	                return image;
+
+	        // image is not optimized, so create a new image that is
+	        BufferedImage new_image = gfx_config.createCompatibleImage(
+	                        image.getWidth(), image.getHeight(), image.getTransparency());
+
+	        // get the graphics context of the new image to draw the old image on
+	        Graphics2D g2d = (Graphics2D) new_image.getGraphics();
+
+	        // actually draw the image and dispose of context no longer needed
+	        g2d.drawImage(image, 0, 0, null);
+	        g2d.dispose();
+
+	        // return the new optimized image
+	        return new_image; 
 	}
 
 }
