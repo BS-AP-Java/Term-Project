@@ -1,4 +1,4 @@
-package beta;
+package app;
 
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
