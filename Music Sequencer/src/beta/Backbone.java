@@ -1,9 +1,11 @@
 package beta;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -15,10 +17,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
 public class Backbone extends JPanel implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
@@ -62,6 +67,14 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     	try {
     		icon = new ImageIcon("resources//Images//exit.png");
     		exit = new JButton(icon);
+    		icon = new ImageIcon("resources//Images//save.png");
+    		JButton save = new JButton(icon);
+    		icon = new ImageIcon("resources//Images//open file.png");
+    		JButton open = new JButton(icon);
+    		icon = new ImageIcon("resources//Images//play button.png");
+    		JButton play = new JButton(icon);
+    		icon = new ImageIcon("resources//Images//pause button.png");
+    		JButton pause = new JButton(icon);
     		soundManager = new SoundManager();
 	    	bgFile = new File("resources//Images//looseleaf.png");
 	    	bg = ImageIO.read(bgFile);
@@ -79,7 +92,13 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
-	        this.add(exit);
+	        JMenuBar tool = new JMenuBar();
+	        f.add(tool);
+	        tool.add(play);
+	        tool.add(pause);
+	        tool.add(open);
+	        tool.add(save);
+	        tool.add(exit);
 	        running = true;
     	} catch(Exception e) {
     		
