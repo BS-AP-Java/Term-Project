@@ -21,6 +21,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
@@ -92,13 +93,17 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
-	        JMenuBar tool = new JMenuBar();
-	        f.add(tool);
+	        JButton credits = new JButton("About");
+	        JMenuBar x = new JMenuBar();
+	        JMenu tool = new JMenu("Menu");
+	        x.add(tool);  
+	        f.setJMenuBar(x);
 	        tool.add(play);
 	        tool.add(pause);
 	        tool.add(open);
 	        tool.add(save);
 	        tool.add(exit);
+	        tool.add(credits);
 	        running = true;
     	} catch(Exception e) {
     		
