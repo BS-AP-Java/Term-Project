@@ -37,7 +37,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private BufferedImage bg;
 	private File bgFile;
 	private SoundManager soundManager;
-	private JButton exit;
+	private JButton exit, save, open, credits, play, pause;
 	private ImageIcon icon;
 	
 	//method to stop the program
@@ -69,13 +69,14 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		icon = new ImageIcon("resources//Images//exit.png");
     		exit = new JButton(icon);
     		icon = new ImageIcon("resources//Images//save.png");
-    		JButton save = new JButton(icon);
+    		save = new JButton(icon);
     		icon = new ImageIcon("resources//Images//open file.png");
-    		JButton open = new JButton(icon);
+    		open = new JButton(icon);
     		icon = new ImageIcon("resources//Images//play button.png");
-    		JButton play = new JButton(icon);
+    		play = new JButton(icon);
     		icon = new ImageIcon("resources//Images//pause button.png");
-    		JButton pause = new JButton(icon);
+    		pause = new JButton(icon);
+    		credits = new JButton("About");
     		soundManager = new SoundManager();
 	    	bgFile = new File("resources//Images//looseleaf.png");
 	    	bg = ImageIO.read(bgFile);
@@ -92,18 +93,17 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addKeyListener(this);
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
-	        f.addMouseWheelListener(this);
-	        JButton credits = new JButton("About");
+	        f.addMouseWheelListener(this); 
 	        JMenuBar x = new JMenuBar();
 	        JMenu tool = new JMenu("Menu");
-	        x.add(tool);  
-	        f.setJMenuBar(x);
+	        x.add(tool); 
 	        tool.add(play);
 	        tool.add(pause);
 	        tool.add(open);
 	        tool.add(save);
 	        tool.add(exit);
 	        tool.add(credits);
+	        f.setJMenuBar(x);
 	        running = true;
     	} catch(Exception e) {
     		
