@@ -19,14 +19,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
+import javax.swing.JTextField;
 
 public class Backbone extends JPanel implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
-	public Backbone() {
-	}
 	public static boolean running;
 	protected Frame frame;
 	private String msg;//string to hold words
@@ -35,7 +34,12 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private File bgFile;
 	private SoundManager soundManager;
 	private JButton exit, save, open, credits, play, pause;
+	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6;
+	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
+	
+	public Backbone() {
+	}
 	
 	//method to stop the program
     public void stop() {
@@ -63,6 +67,22 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     //sets up screen
     public void init() {
     	try {
+    		msg = "Press Esc to exit";
+	        //construct screen object
+	        frame = new Frame(this);
+	        f = frame.getFrame();
+	        this.setLayout(null);
+	        //set font style, type, and size
+	        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+	        //set background color to black
+	        this.setBackground(Color.white);
+	        //set foreground color to white
+	        this.setForeground(Color.black);
+	        f.addKeyListener(this);
+	        f.addMouseListener(this);
+	        f.addMouseMotionListener(this);
+	        f.addMouseWheelListener(this); 
+	        ///////////////////////////////////////////////////////////////
     		icon = new ImageIcon("resources//Images//exit.png");
     		exit = new JButton(icon);
     		icon = new ImageIcon("resources//Images//save.png");
@@ -74,23 +94,59 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
     		credits = new JButton("About");
+    		////////////////////////////////////////////////////////////////
+    		textField = new JTextField();
+    		textField.setColumns(10);
+    		textField.setBounds(this.getWidth()/4, 22, 480, 17);
+    		textField_1 = new JTextField();
+    		textField_1.setColumns(10);
+    		textField_1.setBounds(this.getWidth()/4, 50, 480, 17);
+    		textField_2 = new JTextField();
+    		textField_2.setColumns(10);
+    		textField_2.setBounds(this.getWidth()/4, 75, 480, 18);
+    		textField_3 = new JTextField();
+    		textField_3.setColumns(10);
+    		textField_3.setBounds(this.getWidth()/4, 103, 480, 17);
+    		textField_4 = new JTextField();
+    		textField_4.setColumns(10);
+    		textField_4.setBounds(this.getWidth()/4, 129, 480, 15);
+    		textField_5 = new JTextField();
+    		textField_5.setColumns(10);
+    		textField_5.setBounds(this.getWidth()/4, 153, 480, 17);
+    		textField_6 = new JTextField();
+    		textField_6.setColumns(10);
+    		textField_6.setBounds(this.getWidth()/4, 178, 480, 17);
+    		////////////////////////////////////////////////////////////////
+    		lblPiano = new JLabel("Piano");
+    		lblPiano.setBounds(17, 24, 46, 14);
+    		lblPiano_1 = new JLabel("Piano 2");
+    		lblPiano_1.setBounds(17, 49, 46, 14);
+    		lblDoubleBass = new JLabel("Double Bass");
+    		lblDoubleBass.setBounds(17, 74, 70, 20);
+    		lblDoubleBass_1 = new JLabel("Double Bass 2");
+    		lblDoubleBass_1.setBounds(17, 105, 74, 14);
+    		lblSnareDrum = new JLabel("Snare Drum");
+    		lblSnareDrum.setBounds(17, 130, 70, 14);
+    		lblBassDrum = new JLabel("Bass Drum");
+    		lblBassDrum.setBounds(17, 155, 58, 14);
+    		lblClick = new JLabel("Click");
+    		lblClick.setBounds(17, 180, 27, 14);
+    		////////////////////////////////////////////////////////////////
+    		this.add(textField);
+    		this.add(textField_1);
+    		this.add(textField_2);
+    		this.add(textField_3);
+    		this.add(textField_4);
+    		this.add(textField_5);
+    		this.add(textField_6);
+    		this.add(lblPiano);
+    		this.add(lblPiano_1);
+    		this.add(lblDoubleBass);
+    		this.add(lblDoubleBass_1);
+    		this.add(lblSnareDrum);
+    		this.add(lblBassDrum);
+    		this.add(lblClick);
     		soundManager = new SoundManager();
-	    	bgFile = new File("resources//Images//looseleaf.png");
-	    	bg = ImageIO.read(bgFile);
-	    	msg = "Press Esc to exit";
-	        //construct screen object
-	        frame = new Frame(this);
-	        f = frame.getFrame();
-	        //set font style, type, and size
-	        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-	        //set background color to black
-	        this.setBackground(Color.white);
-	        //set foreground color to white
-	        this.setForeground(Color.black);
-	        f.addKeyListener(this);
-	        f.addMouseListener(this);
-	        f.addMouseMotionListener(this);
-	        f.addMouseWheelListener(this); 
 	        JMenuBar x = new JMenuBar();
 	        JMenu tool = new JMenu("Menu");
 	        x.add(tool); 
