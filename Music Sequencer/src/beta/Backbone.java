@@ -33,7 +33,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private BufferedImage bg;
 	private File bgFile;
 	private SoundManager soundManager;
-	private JButton exit, save, open, credits, play, pause;
+	private JButton stop, save, open, credits, play, pause;
 	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6;
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
@@ -91,6 +91,8 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		play = new JButton(icon);
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
+    		icon = new ImageIcon("resources//Images//stop.png");
+    		stop = new JButton(icon);
     		credits = new JButton("About");
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
@@ -146,10 +148,11 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		this.add(lblClick);
     		soundManager = new SoundManager();
 	        JMenuBar x = new JMenuBar();
-	        x.add(play);
-	        x.add(pause);
 	        x.add(open);
 	        x.add(save);
+	        x.add(play);
+	        x.add(pause);
+	        x.add(stop);
 	        x.add(credits);
 	        f.setJMenuBar(x);
 	        running = true;
