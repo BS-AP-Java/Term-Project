@@ -20,12 +20,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Backbone extends JPanel implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
+public class Backbone extends JLayeredPane implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
 	public static boolean running;
 	protected Frame frame;
 	private String msg;//string to hold words
@@ -37,6 +37,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6;
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
+	private int maxWhite, maxBlack, blackWidth, blackHeight, whiteWidth, whiteHeight;
 	
 	public Backbone() {
 	}
@@ -67,6 +68,12 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     //sets up screen
     public void init() {
     	try {
+    		maxBlack = 15;
+    		maxWhite = 15;
+    		blackWidth = 48;
+    		blackHeight = 140;
+    		whiteWidth = 60;
+    		whiteHeight = 240;
     		msg = "Press Esc to exit";
 	        //construct screen object
 	        frame = new Frame(this);
@@ -81,7 +88,51 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addKeyListener(this);
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
-	        f.addMouseWheelListener(this); 
+	        f.addMouseWheelListener(this);
+	        ///////////////////////////////////////////////////////////////
+	        for (int i = 0; i < maxBlack; i++) {
+		        if (i == 3 || i == 6 || i == 10 || i ==13) {
+		            continue;
+		        }
+		        JButton b = new JButton();
+		        b.setBackground(Color.BLACK);
+		        b.setLocation(i*(whiteWidth) + (blackWidth*3/4), 250);
+		        b.setSize(blackWidth, blackHeight);
+
+		        this.add(b, 1, -1);
+		    }
+	        
+	        for (int i = 1; i < maxWhite; i++) {
+		        JButton b = new JButton();
+		        b.setBackground(Color.WHITE);
+		        b.setLocation(i * whiteWidth, 250);
+		        b.setSize(whiteWidth, whiteHeight);
+
+		        this.add(b, 0, -1);
+		    }
+	        /**
+	        for (int i = 0; i < maxBlack; i++) {
+		        int j = i % 7;
+		        if (j == 2 || j == 6)
+		            continue;
+
+		        JButton b = new JButton();
+		        b.setBackground(Color.BLACK);
+		        b.setLocation(i*(whiteWidth) + (blackWidth*3/4), 300);
+		        b.setSize(blackWidth, blackHeight);
+
+		        this.add(b, 1, -1);
+		    }
+	        
+	        for (int i = 0; i < maxWhite; i++) {
+		        JButton b = new JButton();
+		        b.setBackground(Color.WHITE);
+		        b.setLocation(i * whiteWidth, 300);
+		        b.setSize(whiteWidth, whiteHeight);
+
+		        this.add(b, 0, -1);
+		    }
+		    **/
 	        ///////////////////////////////////////////////////////////////
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
@@ -97,25 +148,25 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
-    		textField.setBounds(this.getWidth()/4, 22, 480, 17);
+    		textField.setBounds(this.getWidth()/4, 22, 480, 20);
     		textField_1 = new JTextField();
     		textField_1.setColumns(10);
-    		textField_1.setBounds(this.getWidth()/4, 50, 480, 17);
+    		textField_1.setBounds(this.getWidth()/4, 50, 480, 20);
     		textField_2 = new JTextField();
     		textField_2.setColumns(10);
-    		textField_2.setBounds(this.getWidth()/4, 75, 480, 18);
+    		textField_2.setBounds(this.getWidth()/4, 75, 480, 20);
     		textField_3 = new JTextField();
     		textField_3.setColumns(10);
-    		textField_3.setBounds(this.getWidth()/4, 103, 480, 17);
+    		textField_3.setBounds(this.getWidth()/4, 103, 480, 20);
     		textField_4 = new JTextField();
     		textField_4.setColumns(10);
-    		textField_4.setBounds(this.getWidth()/4, 129, 480, 15);
+    		textField_4.setBounds(this.getWidth()/4, 129, 480, 20);
     		textField_5 = new JTextField();
     		textField_5.setColumns(10);
-    		textField_5.setBounds(this.getWidth()/4, 153, 480, 17);
+    		textField_5.setBounds(this.getWidth()/4, 153, 480, 20);
     		textField_6 = new JTextField();
     		textField_6.setColumns(10);
-    		textField_6.setBounds(this.getWidth()/4, 178, 480, 17);
+    		textField_6.setBounds(this.getWidth()/4, 178, 480, 20);
     		////////////////////////////////////////////////////////////////
     		lblPiano = new JLabel("Piano");
     		lblPiano.setBounds(17, 24, 46, 14);
@@ -212,7 +263,7 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 		//g.drawImage(bg, 0, 0, f.getWidth(), f.getHeight(), null);
         //change drawing color to foreground color
         g.setColor(this.getForeground());
-        g.drawString(msg, 60, 60);
+        //g.drawString(msg, 60, 60);
 	}
 	
 	public Dimension getPreferredSize() {

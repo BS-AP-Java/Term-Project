@@ -14,16 +14,7 @@ public class PianoKeyBoard {
 
 	    int width = 60;
 	    int height = 240;
-
-	    for (int i = 0; i < maxKeys; i++) {
-	        JButton b = new JButton();
-	        b.setBackground(Color.WHITE);
-	        b.setLocation(i * width, 0);
-	        b.setSize(width, height);
-
-	        panel.add(b, 0, -1);
-	    }
-
+	    
 	    int width2 = 48;
 	    int height2 = 140;
 	    for (int i = 0; i < maxKeys; i++) {
@@ -37,6 +28,15 @@ public class PianoKeyBoard {
 	        b.setSize(width2, height2);
 
 	        panel.add(b, 1, -1);
+	    }
+
+	    for (int i = 0; i < maxKeys; i++) {
+	        JButton b = new JButton();
+	        b.setBackground(Color.WHITE);
+	        b.setLocation(i * width, 0);
+	        b.setSize(width, height);
+
+	        panel.add(b, 0, -1);
 	    }
 
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

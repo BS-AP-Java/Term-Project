@@ -11,6 +11,7 @@ import java.awt.Window;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 
@@ -22,10 +23,10 @@ public class Frame {
 	Toolkit toolkit;
 	Dimension dim;
 	
-	public Frame(JPanel pane) {
+	public Frame(JLayeredPane pane) {
 		jframe = new JFrame();
 		fullScreen = false;
-		windowWidth = 800;
+		windowWidth = 967;
 		windowHeight = 600;
 		toolkit =  Toolkit.getDefaultToolkit();
 		dim = toolkit.getScreenSize();
