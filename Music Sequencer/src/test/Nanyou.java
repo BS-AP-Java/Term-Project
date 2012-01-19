@@ -18,6 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 import javax.swing.JLabel;
+import javax.swing.JComboBox;
 
 public class Nanyou extends JFrame {
 	private JTextField textField;
@@ -49,7 +50,7 @@ public class Nanyou extends JFrame {
 	 */
 	public Nanyou() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 601, 464);
+		setBounds(100, 100, 644, 469);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -142,5 +143,17 @@ public class Nanyou extends JFrame {
 		textField_6.setColumns(10);
 		textField_6.setBounds(95, 178, 480, 17);
 		panel.add(textField_6);
+		
+		JButton button = new JButton("New button");
+		button.setBounds(17, 242, 27, 128);
+		panel.add(button);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(2, 242, 27, 168);
+		panel.add(btnNewButton);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setBounds(36, 242, 27, 168);
+		panel.add(button_1);
 	}
 }
