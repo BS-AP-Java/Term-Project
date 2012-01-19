@@ -1,12 +1,13 @@
 package beta;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -14,6 +15,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -21,9 +23,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JTextField;
+
+import lol.FileRW;
+
 
 public class Backbone extends JLayeredPane implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
 	public static boolean running;
@@ -38,7 +42,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
 	private int maxWhite, maxBlack, blackWidth, blackHeight, whiteWidth, whiteHeight;
-	
+	private FileRW x;
 	public Backbone() {
 	}
 	
@@ -67,7 +71,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 
     //sets up screen
     public void init() {
-    	try {
+    	try { x = new FileRW("nanyou");
     		maxBlack = 15;
     		maxWhite = 15;
     		blackWidth = 48;
@@ -136,15 +140,21 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        ///////////////////////////////////////////////////////////////
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
+    		save.setBounds(65, 0, 58, 21);
     		icon = new ImageIcon("resources//Images//open file.png");
     		open = new JButton(icon);
+    		open.setBounds(0, 0, 58, 21);
     		icon = new ImageIcon("resources//Images//play button.png");
     		play = new JButton(icon);
+    		play.setBounds(370, 0, 58, 21);
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
+    		pause.setBounds(440, 0, 58, 21);
     		icon = new ImageIcon("resources//Images//stop.png");
     		stop = new JButton(icon);
+    		stop.setBounds(510, 0, 58, 21);
     		credits = new JButton("About");
+    		credits.setBounds(885, 0, 74, 21);
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
@@ -198,14 +208,12 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		this.add(lblBassDrum);
     		this.add(lblClick);
     		soundManager = new SoundManager();
-	        JMenuBar x = new JMenuBar();
-	        x.add(open);
-	        x.add(save);
-	        x.add(play);
-	        x.add(pause);
-	        x.add(stop);
-	        x.add(credits);
-	        f.setJMenuBar(x);
+	        this.add(open);
+	        this.add(save);
+	        this.add(play);
+	        this.add(pause);
+	        this.add(stop);
+	        this.add(credits);
 	        running = true;
     	} catch(Exception e) {
     		

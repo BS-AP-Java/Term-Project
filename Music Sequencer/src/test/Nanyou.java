@@ -19,6 +19,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JToolBar;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Nanyou extends JFrame {
 	private JTextField textField;
@@ -51,30 +54,6 @@ public class Nanyou extends JFrame {
 	public Nanyou() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 644, 469);
-		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JMenu mnMenu = new JMenu("Menu");
-		menuBar.add(mnMenu);
-		
-		JButton btnPlay = new JButton("Play");
-		mnMenu.add(btnPlay);
-		
-		JButton btnPause = new JButton("Pause");
-		mnMenu.add(btnPause);
-		
-		JButton btnOpen = new JButton("Open");
-		mnMenu.add(btnOpen);
-		
-		JButton btnSave = new JButton("Save");
-		mnMenu.add(btnSave);
-		
-		JButton btnExit = new JButton("Exit");
-		mnMenu.add(btnExit);
-		
-		JButton btnAbout = new JButton("About");
-		mnMenu.add(btnAbout);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
 		JPanel panel = new JPanel();
@@ -155,5 +134,34 @@ public class Nanyou extends JFrame {
 		JButton button_1 = new JButton("New button");
 		button_1.setBounds(36, 242, 27, 168);
 		panel.add(button_1);
+		
+		JButton btnAbout = new JButton("About");
+		btnAbout.setBounds(544, 0, 74, 21);
+		panel.add(btnAbout);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.setBounds(447, 0, 25, 21);
+		panel.add(btnExit);
+		
+		JButton btnPlay = new JButton("Play");
+		btnPlay.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+			}
+		});
+		btnPlay.setBounds(182, 0, 58, 21);
+		panel.add(btnPlay);
+		
+		JButton btnOpen = new JButton("Open");
+		btnOpen.setBounds(5, 0, 58, 21);
+		panel.add(btnOpen);
+		
+		JButton btnPause = new JButton("Pause");
+		btnPause.setBounds(250, 0, 58, 21);
+		panel.add(btnPause);
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.setBounds(65, 0, 58, 21);
+		panel.add(btnSave);
 	}
 }

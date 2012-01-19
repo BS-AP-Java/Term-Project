@@ -28,7 +28,7 @@ public class FileRW{
   
   public void writeToFile() throws IOException
   {
-    FileWriter y = new FileWriter(fileName + ".txt");
+    FileWriter y = new FileWriter("C:/Users/Kwun/Desktop"+ fileName + ".txt");
     BufferedWriter x = new BufferedWriter(y);
     PrintWriter z = new PrintWriter(x);
     

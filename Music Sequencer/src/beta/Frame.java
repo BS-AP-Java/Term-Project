@@ -27,7 +27,7 @@ public class Frame {
 		jframe = new JFrame();
 		fullScreen = false;
 		windowWidth = 967;
-		windowHeight = 600;
+		windowHeight = 520;
 		toolkit =  Toolkit.getDefaultToolkit();
 		dim = toolkit.getScreenSize();
 		windowX = (dim.width - windowWidth)/2;
