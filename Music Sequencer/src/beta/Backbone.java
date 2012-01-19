@@ -151,7 +151,6 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        x.add(open);
 	        x.add(save);
 	        x.add(credits);
-	        x.add(credits);
 	        f.setJMenuBar(x);
 	        running = true;
     	} catch(Exception e) {
