@@ -83,8 +83,6 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this); 
 	        ///////////////////////////////////////////////////////////////
-    		icon = new ImageIcon("resources//Images//exit.png");
-    		exit = new JButton(icon);
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
     		icon = new ImageIcon("resources//Images//open file.png");
@@ -148,14 +146,11 @@ public class Backbone extends JPanel implements KeyListener, MouseMotionListener
     		this.add(lblClick);
     		soundManager = new SoundManager();
 	        JMenuBar x = new JMenuBar();
-	        JMenu tool = new JMenu("Menu");
-	        x.add(tool); 
-	        tool.add(play);
-	        tool.add(pause);
-	        tool.add(open);
-	        tool.add(save);
-	        tool.add(exit);
-	        tool.add(credits);
+	        x.add(play);
+	        x.add(pause);
+	        x.add(open);
+	        x.add(save);
+	        x.add(credits);
 	        f.setJMenuBar(x);
 	        running = true;
     	} catch(Exception e) {

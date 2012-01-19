@@ -80,11 +80,6 @@ public class Nanyou extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(95, 22, 480, 17);
-		panel.add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblPiano = new JLabel("Piano");
 		lblPiano.setBounds(17, 24, 46, 14);
 		panel.add(lblPiano);
@@ -112,6 +107,11 @@ public class Nanyou extends JFrame {
 		JLabel lblClick = new JLabel("Click");
 		lblClick.setBounds(17, 180, 27, 14);
 		panel.add(lblClick);
+		
+		textField = new JTextField();
+		textField.setBounds(95, 22, 480, 17);
+		panel.add(textField);
+		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
