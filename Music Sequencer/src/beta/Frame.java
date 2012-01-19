@@ -12,8 +12,6 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JRootPane;
 
 public class Frame {
 	public static boolean fullScreen;
@@ -33,7 +31,7 @@ public class Frame {
 		windowX = (dim.width - windowWidth)/2;
 		windowY = (dim.height - windowHeight)/2;
 		gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		jframe.setResizable(true);
+		jframe.setResizable(false);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setTitle("Music Sequencer");
 		jframe.setContentPane(pane);

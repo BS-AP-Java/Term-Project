@@ -7,23 +7,17 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JMenuBar;
 import javax.swing.JTextField;
 
 import lol.FileRW;
@@ -34,10 +28,10 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	protected Frame frame;
 	private String msg;//string to hold words
 	private JFrame f;
-	private BufferedImage bg;
-	private File bgFile;
 	private SoundManager soundManager;
 	private JButton stop, save, open, credits, play, pause;
+	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11;
+	private JButton w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14;
 	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6;
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
@@ -71,7 +65,8 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 
     //sets up screen
     public void init() {
-    	try { x = new FileRW("nanyou");
+    	try {
+    		x = new FileRW("nanyou");
     		maxBlack = 15;
     		maxWhite = 15;
     		blackWidth = 48;
@@ -85,15 +80,91 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.setLayout(null);
 	        //set font style, type, and size
 	        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-	        //set background color to black
-	        this.setBackground(Color.white);
 	        //set foreground color to white
-	        this.setForeground(Color.black);
+	        this.setBackground(new Color(61, 89, 171));
 	        f.addKeyListener(this);
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
 	        ///////////////////////////////////////////////////////////////
+	        b1 = new JButton();
+	        b2 = new JButton();
+	        b3 = new JButton();
+	        b4 = new JButton();
+	        b5 = new JButton();
+	        b6 = new JButton();
+	        b7 = new JButton();
+	        b8 = new JButton();
+	        b9 = new JButton();
+	        b10 = new JButton();
+	        b11 = new JButton();
+	        w1 = new JButton();
+	        w2 = new JButton();
+	        w3 = new JButton();
+	        w4 = new JButton();
+	        w5 = new JButton();
+	        w6 = new JButton();
+	        w7 = new JButton();
+	        w8 = new JButton();
+	        w9 = new JButton();
+	        w10 = new JButton();
+	        w11 = new JButton();
+	        w12 = new JButton();
+	        w13 = new JButton();
+	        w14 = new JButton();
+	        ///////////////////////////////////////////////////////////////
+	        b1.setBounds(36, 250, blackWidth, blackHeight);
+	        b2.setBounds(96, 250, blackWidth, blackHeight);
+	        b3.setBounds(156, 250, blackWidth, blackHeight);
+	        b4.setBounds(276, 250, blackWidth, blackHeight);
+	        b5.setBounds(336, 250, blackWidth, blackHeight);
+	        b6.setBounds(456, 250, blackWidth, blackHeight);
+	        b7.setBounds(516, 250, blackWidth, blackHeight);
+	        b8.setBounds(576, 250, blackWidth, blackHeight);
+	        b9.setBounds(696, 250, blackWidth, blackHeight);
+	        b10.setBounds(756, 250, blackWidth, blackHeight);
+	        b11.setBounds(876, 250, blackWidth, blackHeight);
+	        this.add(b1, 1, -1);
+	        this.add(b2, 1, -1);
+	        this.add(b3, 1, -1);
+	        this.add(b4, 1, -1);
+	        this.add(b5, 1, -1);
+	        this.add(b6, 1, -1);
+	        this.add(b7, 1, -1);
+	        this.add(b8, 1, -1);
+	        this.add(b9, 1, -1);
+	        this.add(b10, 1, -1);
+	        this.add(b11, 1, -1);
+	        w1.setBounds(60, 250, whiteWidth, whiteHeight);
+	        w2.setBounds(120, 250, whiteWidth, whiteHeight);
+	        w3.setBounds(180, 250, whiteWidth, whiteHeight);
+	        w4.setBounds(240, 250, whiteWidth, whiteHeight);
+	        w5.setBounds(300, 250, whiteWidth, whiteHeight);
+	        w6.setBounds(360, 250, whiteWidth, whiteHeight);
+	        w7.setBounds(420, 250, whiteWidth, whiteHeight);
+	        w8.setBounds(480, 250, whiteWidth, whiteHeight);
+	        w9.setBounds(540, 250, whiteWidth, whiteHeight);
+	        w10.setBounds(600, 250, whiteWidth, whiteHeight);
+	        w11.setBounds(660, 250, whiteWidth, whiteHeight);
+	        w12.setBounds(720, 250, whiteWidth, whiteHeight);
+	        w13.setBounds(780, 250, whiteWidth, whiteHeight);
+	        w14.setBounds(840, 250, whiteWidth, whiteHeight);
+	        this.add(w1, 0, -1);
+	        this.add(w2, 0, -1);
+	        this.add(w3, 0, -1);
+	        this.add(w4, 0, -1);
+	        this.add(w5, 0, -1);
+	        this.add(w6, 0, -1);
+	        this.add(w7, 0, -1);
+	        this.add(w8, 0, -1);
+	        this.add(w9, 0, -1);
+	        this.add(w10, 0, -1);
+	        this.add(w11, 0, -1);
+	        this.add(w12, 0, -1);
+	        this.add(w13, 0, -1);
+	        this.add(w14, 0, -1);
+	        ///////////////////////////////////////////////////////////////
+	        /**
 	        for (int i = 0; i < maxBlack; i++) {
 		        if (i == 3 || i == 6 || i == 10 || i ==13) {
 		            continue;
@@ -105,7 +176,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 
 		        this.add(b, 1, -1);
 		    }
-	        
 	        for (int i = 1; i < maxWhite; i++) {
 		        JButton b = new JButton();
 		        b.setBackground(Color.WHITE);
@@ -114,6 +184,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 
 		        this.add(b, 0, -1);
 		    }
+		    **/
 	        /**
 	        for (int i = 0; i < maxBlack; i++) {
 		        int j = i % 7;
@@ -140,58 +211,58 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        ///////////////////////////////////////////////////////////////
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
-    		save.setBounds(65, 0, 58, 21);
+    		save.setBounds(65, 0, 50, 50);
     		icon = new ImageIcon("resources//Images//open file.png");
     		open = new JButton(icon);
-    		open.setBounds(0, 0, 58, 21);
+    		open.setBounds(0, 0, 50, 50);
     		icon = new ImageIcon("resources//Images//play button.png");
     		play = new JButton(icon);
-    		play.setBounds(370, 0, 58, 21);
+    		play.setBounds(370, 0, 50, 50);
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
-    		pause.setBounds(440, 0, 58, 21);
+    		pause.setBounds(440, 0, 50, 50);
     		icon = new ImageIcon("resources//Images//stop.png");
     		stop = new JButton(icon);
-    		stop.setBounds(510, 0, 58, 21);
+    		stop.setBounds(510, 0, 50, 50);
     		credits = new JButton("About");
     		credits.setBounds(885, 0, 74, 21);
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
-    		textField.setBounds(this.getWidth()/4, 22, 480, 20);
+    		textField.setBounds(100, 52, 800, 20);
     		textField_1 = new JTextField();
     		textField_1.setColumns(10);
-    		textField_1.setBounds(this.getWidth()/4, 50, 480, 20);
+    		textField_1.setBounds(100, 80, 800, 20);
     		textField_2 = new JTextField();
     		textField_2.setColumns(10);
-    		textField_2.setBounds(this.getWidth()/4, 75, 480, 20);
+    		textField_2.setBounds(100, 105, 800, 20);
     		textField_3 = new JTextField();
     		textField_3.setColumns(10);
-    		textField_3.setBounds(this.getWidth()/4, 103, 480, 20);
+    		textField_3.setBounds(100, 133, 800, 20);
     		textField_4 = new JTextField();
     		textField_4.setColumns(10);
-    		textField_4.setBounds(this.getWidth()/4, 129, 480, 20);
+    		textField_4.setBounds(100, 159, 800, 20);
     		textField_5 = new JTextField();
     		textField_5.setColumns(10);
-    		textField_5.setBounds(this.getWidth()/4, 153, 480, 20);
+    		textField_5.setBounds(100, 183, 800, 20);
     		textField_6 = new JTextField();
     		textField_6.setColumns(10);
-    		textField_6.setBounds(this.getWidth()/4, 178, 480, 20);
+    		textField_6.setBounds(100, 208, 800, 20);
     		////////////////////////////////////////////////////////////////
     		lblPiano = new JLabel("Piano");
-    		lblPiano.setBounds(17, 24, 46, 14);
+    		lblPiano.setBounds(17, 54, 46, 14);
     		lblPiano_1 = new JLabel("Piano 2");
-    		lblPiano_1.setBounds(17, 49, 46, 14);
+    		lblPiano_1.setBounds(17, 79, 46, 14);
     		lblDoubleBass = new JLabel("Double Bass");
-    		lblDoubleBass.setBounds(17, 74, 70, 20);
+    		lblDoubleBass.setBounds(17, 104, 70, 20);
     		lblDoubleBass_1 = new JLabel("Double Bass 2");
-    		lblDoubleBass_1.setBounds(17, 105, 74, 14);
+    		lblDoubleBass_1.setBounds(17, 135, 74, 14);
     		lblSnareDrum = new JLabel("Snare Drum");
-    		lblSnareDrum.setBounds(17, 130, 70, 14);
+    		lblSnareDrum.setBounds(17, 160, 70, 14);
     		lblBassDrum = new JLabel("Bass Drum");
-    		lblBassDrum.setBounds(17, 155, 58, 14);
+    		lblBassDrum.setBounds(17, 185, 58, 14);
     		lblClick = new JLabel("Click");
-    		lblClick.setBounds(17, 180, 27, 14);
+    		lblClick.setBounds(17, 210, 27, 14);
     		////////////////////////////////////////////////////////////////
     		this.add(textField);
     		this.add(textField_1);
