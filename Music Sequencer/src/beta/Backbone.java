@@ -114,16 +114,38 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        w14 = new JButton();
 	        ///////////////////////////////////////////////////////////////
 	        b1.setBounds(36, 250, blackWidth, blackHeight);
+	        b1.putClientProperty("Synthetica.background", Color.BLACK);
+    		b1.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b2.setBounds(96, 250, blackWidth, blackHeight);
+	        b2.putClientProperty("Synthetica.background", Color.BLACK);
+    		b2.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b3.setBounds(156, 250, blackWidth, blackHeight);
+	        b3.putClientProperty("Synthetica.background", Color.BLACK);
+    		b3.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b4.setBounds(276, 250, blackWidth, blackHeight);
+	        b4.putClientProperty("Synthetica.background", Color.BLACK);
+    		b4.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b5.setBounds(336, 250, blackWidth, blackHeight);
+	        b5.putClientProperty("Synthetica.background", Color.BLACK);
+    		b5.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b6.setBounds(456, 250, blackWidth, blackHeight);
+	        b6.putClientProperty("Synthetica.background", Color.BLACK);
+    		b6.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b7.setBounds(516, 250, blackWidth, blackHeight);
+	        b7.putClientProperty("Synthetica.background", Color.BLACK);
+    		b7.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b8.setBounds(576, 250, blackWidth, blackHeight);
+	        b8.putClientProperty("Synthetica.background", Color.BLACK);
+    		b8.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b9.setBounds(696, 250, blackWidth, blackHeight);
+	        b9.putClientProperty("Synthetica.background", Color.BLACK);
+    		b9.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b10.setBounds(756, 250, blackWidth, blackHeight);
+	        b10.putClientProperty("Synthetica.background", Color.BLACK);
+    		b10.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        b11.setBounds(876, 250, blackWidth, blackHeight);
+	        b11.putClientProperty("Synthetica.background", Color.BLACK);
+    		b11.putClientProperty("Synthetica.background.alpha", 0.8f);
 	        this.add(b1, 1, -1);
 	        this.add(b2, 1, -1);
 	        this.add(b3, 1, -1);
@@ -136,6 +158,8 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(b10, 1, -1);
 	        this.add(b11, 1, -1);
 	        w1.setBounds(60, 250, whiteWidth, whiteHeight);
+	        w1.putClientProperty("Synthetica.background", Color.WHITE);
+    		w1.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w2.setBounds(120, 250, whiteWidth, whiteHeight);
 	        w3.setBounds(180, 250, whiteWidth, whiteHeight);
 	        w4.setBounds(240, 250, whiteWidth, whiteHeight);
@@ -225,6 +249,8 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		stop = new JButton(icon);
     		stop.setBounds(510, 0, 50, 50);
     		credits = new JButton("About");
+    		//credits.putClientProperty("Synthetica.background", Color.RED);
+    		//credits.putClientProperty("Synthetica.background.alpha", 0.20f);
     		credits.setBounds(885, 0, 74, 21);
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
