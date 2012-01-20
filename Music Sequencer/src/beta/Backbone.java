@@ -259,11 +259,15 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		credits = new JButton("About");
     		credits.setBounds(885, 0, 74, 21);
     		credits.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
+    			public void actionPerformed(ActionEvent e)
                 {
-                	}}
-                );
+                	JFrame credit = new JFrame("Credits");
+                	credit.setBounds(600, 300, 210, 125);
+                	JLabel about = new JLabel("Created by Nanyou Guan and Kwun Chan");
+                	credit.add(about);
+                	credit.setVisible(true);
+                	credit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                	}});
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
