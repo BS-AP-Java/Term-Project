@@ -2,6 +2,7 @@ package beta;
 
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -115,155 +116,105 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        w14 = new JButton();
 	        ///////////////////////////////////////////////////////////////
 	        b1.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b2.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b3.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b4.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b5.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b6.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b7.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b8.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b9.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b10.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        b11.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w1.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w2.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w3.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w4.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w5.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w6.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w7.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w8.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w9.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w10.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w11.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w12.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w13.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        w14.addActionListener(new ActionListener() {
-   			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+	        	public void actionPerformed(ActionEvent e) {
+                }
+            });
 	        ///////////////////////////////////////////////////////////////
 	        b1.setBounds(36, 250, blackWidth, blackHeight);
 	        b1.putClientProperty("Synthetica.background", Color.BLACK);
@@ -313,18 +264,44 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        w1.putClientProperty("Synthetica.background", Color.WHITE);
     		w1.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w2.setBounds(120, 250, whiteWidth, whiteHeight);
+	        w2.putClientProperty("Synthetica.background", Color.WHITE);
+    		w2.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w3.setBounds(180, 250, whiteWidth, whiteHeight);
+	        w3.putClientProperty("Synthetica.background", Color.WHITE);
+    		w3.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w4.setBounds(240, 250, whiteWidth, whiteHeight);
+	        w4.putClientProperty("Synthetica.background", Color.WHITE);
+    		w4.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w5.setBounds(300, 250, whiteWidth, whiteHeight);
+	        w5.putClientProperty("Synthetica.background", Color.WHITE);
+    		w5.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w6.setBounds(360, 250, whiteWidth, whiteHeight);
+	        w6.putClientProperty("Synthetica.background", Color.WHITE);
+    		w6.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w7.setBounds(420, 250, whiteWidth, whiteHeight);
+	        w7.putClientProperty("Synthetica.background", Color.WHITE);
+    		w7.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w8.setBounds(480, 250, whiteWidth, whiteHeight);
+	        w8.putClientProperty("Synthetica.background", Color.WHITE);
+    		w8.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w9.setBounds(540, 250, whiteWidth, whiteHeight);
+	        w9.putClientProperty("Synthetica.background", Color.WHITE);
+    		w9.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w10.setBounds(600, 250, whiteWidth, whiteHeight);
+	        w10.putClientProperty("Synthetica.background", Color.WHITE);
+    		w10.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w11.setBounds(660, 250, whiteWidth, whiteHeight);
+	        w11.putClientProperty("Synthetica.background", Color.WHITE);
+    		w11.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w12.setBounds(720, 250, whiteWidth, whiteHeight);
+	        w12.putClientProperty("Synthetica.background", Color.WHITE);
+    		w12.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w13.setBounds(780, 250, whiteWidth, whiteHeight);
+	        w13.putClientProperty("Synthetica.background", Color.WHITE);
+    		w13.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        w14.setBounds(840, 250, whiteWidth, whiteHeight);
+	        w14.putClientProperty("Synthetica.background", Color.WHITE);
+    		w14.putClientProperty("Synthetica.background.alpha", 0.9f);
 	        this.add(w1, 0, -1);
 	        this.add(w2, 0, -1);
 	        this.add(w3, 0, -1);
@@ -389,62 +366,53 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		save = new JButton(icon);
     		save.setBounds(65, 0, 50, 50);
     		save.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
-                
+                public void actionPerformed(ActionEvent e) {
+                }
+            });
     		icon = new ImageIcon("resources//Images//open file.png");
     		open = new JButton(icon);
     		open.setBounds(0, 0, 50, 50);
     		open.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+    			public void actionPerformed(ActionEvent e) {
+            	}
+            });
     		icon = new ImageIcon("resources//Images//play button.png");
     		play = new JButton(icon);
     		play.setBounds(370, 0, 50, 50);
     		play.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+    			public void actionPerformed(ActionEvent e) {
+                }
+            });
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
     		pause.setBounds(440, 0, 50, 50);
     		pause.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+    			public void actionPerformed(ActionEvent e) {
+                }
+            });
     		icon = new ImageIcon("resources//Images//stop.png");
     		stop = new JButton(icon);
     		stop.setBounds(510, 0, 50, 50);
     		stop.addActionListener(new ActionListener() {
-    			 
-                public void actionPerformed(ActionEvent e)
-                {
-                	}}
-                );
+    			public void actionPerformed(ActionEvent e) {
+                }
+            });
     		credits = new JButton("About");
     		//credits.putClientProperty("Synthetica.background", Color.RED);
     		//credits.putClientProperty("Synthetica.background.alpha", 0.20f);
     		credits.setBounds(885, 0, 74, 21);
     		credits.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e)
-                {
+    			public void actionPerformed(ActionEvent e) {
                 	JFrame credit = new JFrame("Credits");
-                	credit.setBounds(600, 300, 210, 125);
+                	credit.setResizable(false);
+                	credit.setAlwaysOnTop(true);
+                	credit.setBounds(682, 380, 210, 125);
                 	JLabel about = new JLabel("Created by Nanyou Guan and Kwun Chan");
                 	credit.add(about);
                 	credit.setVisible(true);
                 	credit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                	}});
+    			}
+    		});
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
