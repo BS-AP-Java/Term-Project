@@ -43,7 +43,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6;
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick;
 	private ImageIcon icon;
-	private int maxWhite, maxBlack, blackWidth, blackHeight, whiteWidth, whiteHeight;
+	private int blackWidth, blackHeight, whiteWidth, whiteHeight;
 	private FileRW x;
 	private ButtonGroup group;
 	private JRadioButton rbPiano, rbDoubleBass, rbSnareDrum, rbBassDrum, rbClick; 
@@ -77,9 +77,8 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     //sets up screen
     public void init() {
     	try {
+    		soundManager = new SoundManager();
     		x = new FileRW("nanyou");
-    		maxBlack = 15;
-    		maxWhite = 15;
     		blackWidth = 48;
     		blackHeight = 140;
     		whiteWidth = 60;
@@ -98,7 +97,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
 	        ////////////////////////////////////////////////////////////////
-	        rbPiano = new JRadioButton("Piano");
+	        rbPiano = new JRadioButton("Piano", true);
 	        rbDoubleBass = new JRadioButton("Double Bass");
 	        rbSnareDrum = new JRadioButton("Snare Drum");
 	        rbBassDrum = new JRadioButton("Bass Drum");
@@ -143,102 +142,377 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        ///////////////////////////////////////////////////////////////
 	        b1.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(16);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(16);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b2.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(21);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(21);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b3.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(0);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(0);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b4.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(6);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(6);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b5.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(10);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(10);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b6.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(17);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(17);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b7.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(22);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(22);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b8.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(1);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(1);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b9.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(7);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(7);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b10.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(11);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(11);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        b11.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(18);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(18);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w1.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(23);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(23);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w2.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(2);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(2);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w3.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(4);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(4);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w4.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(8);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(8);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w5.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(12);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(12);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w6.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(14);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(14);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w7.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(19);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(19);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w8.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(24);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(24);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w9.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(3);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(3);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w10.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(5);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(5);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w11.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(9);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(9);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w12.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(13);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(13);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w13.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(15);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(15);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        w14.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
+	        		if(rbPiano.isSelected()) {
+	        			soundManager.pianoPlay(20);
+	        		} else if(rbDoubleBass.isSelected()) {
+	        			soundManager.doubleBassPlay(20);
+	        		} else if(rbSnareDrum.isSelected()) {
+	        			soundManager.snareDrumPlay(0);
+	        		} else if(rbBassDrum.isSelected()) {
+	        			soundManager.bassDrumPlay(0);
+	        		} else if(rbClick.isSelected()) {
+	        			soundManager.clickPlay(0);
+	        		}
                 }
             });
 	        ///////////////////////////////////////////////////////////////
