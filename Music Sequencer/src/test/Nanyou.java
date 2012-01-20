@@ -22,6 +22,8 @@ import javax.swing.JComboBox;
 import javax.swing.JToolBar;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JRadioButton;
+import javax.swing.JInternalFrame;
 
 public class Nanyou extends JFrame {
 	private JTextField textField;
@@ -123,18 +125,6 @@ public class Nanyou extends JFrame {
 		textField_6.setBounds(95, 178, 480, 17);
 		panel.add(textField_6);
 		
-		JButton button = new JButton("New button");
-		button.setBounds(17, 242, 27, 128);
-		panel.add(button);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(2, 242, 27, 168);
-		panel.add(btnNewButton);
-		
-		JButton button_1 = new JButton("New button");
-		button_1.setBounds(36, 242, 27, 168);
-		panel.add(button_1);
-		
 		JButton btnAbout = new JButton("About");
 		btnAbout.setBounds(544, 0, 74, 21);
 		panel.add(btnAbout);
@@ -163,5 +153,9 @@ public class Nanyou extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(65, 0, 58, 21);
 		panel.add(btnSave);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
+		rdbtnNewRadioButton.setBounds(32, 262, 109, 23);
+		panel.add(rdbtnNewRadioButton);
 	}
 }

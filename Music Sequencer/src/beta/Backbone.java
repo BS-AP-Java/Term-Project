@@ -2,8 +2,10 @@ package beta;
 
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -15,11 +17,15 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import lol.FileRW;
@@ -39,6 +45,9 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	private ImageIcon icon;
 	private int maxWhite, maxBlack, blackWidth, blackHeight, whiteWidth, whiteHeight;
 	private FileRW x;
+	private ButtonGroup group;
+	private JRadioButton rbPiano, rbDoubleBass, rbSnareDrum, rbBassDrum, rbClick; 
+	
 	public Backbone() {
 	}
 	
@@ -88,9 +97,26 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        f.addMouseListener(this);
 	        f.addMouseMotionListener(this);
 	        f.addMouseWheelListener(this);
+	        ////////////////////////////////////////////////////////////////
+	        rbPiano = new JRadioButton("Piano");
+	        rbDoubleBass = new JRadioButton("Double Bass");
+	        rbSnareDrum = new JRadioButton("Snare Drum");
+	        rbBassDrum = new JRadioButton("Bass Drum");
+	        rbClick = new JRadioButton("Click");
+	        group = new ButtonGroup();
+	        group.add(rbPiano);
+	        group.add(rbDoubleBass);
+	        group.add(rbSnareDrum);
+	        group.add(rbBassDrum);
+	        group.add(rbClick);
+	        rbPiano.setBounds(100, 515, 55, 26);
+	        rbDoubleBass.setBounds(160, 515, 85, 26);
+	        rbSnareDrum.setBounds(250, 515, 85, 26);
+	        rbBassDrum.setBounds(340, 515, 80, 26);
+	        rbClick.setBounds(420, 515, 50, 26);
 	        ///////////////////////////////////////////////////////////////
 	        b1 = new JButton();
-	        b2 = new JButton();
+	        b2 = new JButton(); 
 	        b3 = new JButton();
 	        b4 = new JButton();
 	        b5 = new JButton();
@@ -472,6 +498,11 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(pause);
 	        this.add(stop);
 	        this.add(credits);
+	        this.add(rbPiano);
+	        this.add(rbDoubleBass);
+	        this.add(rbSnareDrum);
+	        this.add(rbBassDrum);
+	        this.add(rbClick);
 	        running = true;
     	} catch(Exception e) {
     		

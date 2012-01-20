@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+
 public class Frame {
 	public static boolean fullScreen;
 	public static int windowWidth, windowHeight, windowX, windowY;
