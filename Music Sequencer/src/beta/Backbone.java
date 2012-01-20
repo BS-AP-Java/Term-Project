@@ -12,7 +12,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -212,20 +213,57 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
     		save.setBounds(65, 0, 50, 50);
+    		save.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
+                
     		icon = new ImageIcon("resources//Images//open file.png");
     		open = new JButton(icon);
     		open.setBounds(0, 0, 50, 50);
+    		open.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
     		icon = new ImageIcon("resources//Images//play button.png");
     		play = new JButton(icon);
     		play.setBounds(370, 0, 50, 50);
+    		play.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
     		icon = new ImageIcon("resources//Images//pause button.png");
     		pause = new JButton(icon);
     		pause.setBounds(440, 0, 50, 50);
+    		pause.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
     		icon = new ImageIcon("resources//Images//stop.png");
     		stop = new JButton(icon);
     		stop.setBounds(510, 0, 50, 50);
+    		stop.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
     		credits = new JButton("About");
     		credits.setBounds(885, 0, 74, 21);
+    		credits.addActionListener(new ActionListener() {
+    			 
+                public void actionPerformed(ActionEvent e)
+                {
+                	}}
+                );
     		////////////////////////////////////////////////////////////////
     		textField = new JTextField();
     		textField.setColumns(10);
