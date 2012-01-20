@@ -2,10 +2,7 @@ package beta;
 
 
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -24,7 +21,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -33,7 +29,6 @@ import javax.swing.JTextField;
 public class Backbone extends JLayeredPane implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
 	public static boolean running;
 	protected Frame frame;
-	private String msg;//string to hold words
 	private JFrame f;
 	private SoundManager soundManager;
 	private JButton stop, save, open, credits, play, pause;
@@ -43,7 +38,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	private JLabel lblPiano, lblPiano_1, lblDoubleBass, lblDoubleBass_1, lblSnareDrum, lblBassDrum, lblClick, lblChoose; 
 	private ImageIcon icon;
 	private int blackWidth, blackHeight, whiteWidth, whiteHeight;
-	private FileRW x;
+	private FileRW fileRW;
 	private ButtonGroup group;
 	private JRadioButton rbPiano, rbDoubleBass, rbSnareDrum, rbBassDrum, rbClick; 
 	
@@ -64,12 +59,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
             //call the mainLoop method
             mainLoop();
         } finally {
-        	if(Frame.fullScreen == true) {
-            //removes full screen and restores screen back to normal
-            frame.restoreScreen();
-        	} else {
-        		
-        	}
+        	
         }
     }
 
@@ -77,12 +67,11 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     public void init() {
     	try {
     		soundManager = new SoundManager();
-    		x = new FileRW("nanyou");
+    		fileRW = new FileRW("nanyou");
     		blackWidth = 48;
     		blackHeight = 140;
     		whiteWidth = 60;
     		whiteHeight = 240;
-    		msg = "Press Esc to exit";
 	        //construct screen object
 	        frame = new Frame(this);
 	        f = frame.getFrame();
@@ -851,14 +840,13 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         int keyCode = e.getKeyCode();
         //check if the key code is equal to the escape key's keycode
         if(keyCode == KeyEvent.VK_ESCAPE) {
-            //call the stop method inherited from the class core
+            //call the stop method inherited from the class
             stop();
         } else if(keyCode == KeyEvent.VK_SPACE) {
-        	Frame.fullScreen = !Frame.fullScreen;
-    		frame.apply();
+        	
         } else {
             //print out what key the user pressed
-            msg = "Pressed: " + KeyEvent.getKeyText(keyCode);
+            //msg = "Pressed: " + KeyEvent.getKeyText(keyCode);
             //makes the program not wait for other buttons to be pressed and uses the key
             //example of when the program waits for other buttons is when you do Ctrl+Alt+Delete)
             e.consume();
@@ -868,9 +856,9 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     //method to override keyReleased method in keylistener
     public void keyReleased(KeyEvent e) {
         //get the key code of the key released
-        int keyCode = e.getKeyCode();
+        //int keyCode = e.getKeyCode();
         //print out what key the user pressed
-        msg = "Released: " + KeyEvent.getKeyText(keyCode);
+        //msg = "Released: " + KeyEvent.getKeyText(keyCode);
         //makes the program not wait for other buttons to be pressed and uses the key
         //example of when the program waits for other buttons is when you do Ctrl+Alt+Delete)
         e.consume();
@@ -886,7 +874,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     //mouse listener
     public void mousePressed(MouseEvent e) {
         //display message when mouse is pressed
-        msg = "You pressed down the mouse";
+        //msg = "You pressed down the mouse";
         try {
         	//soundManager.play();
         } catch(Exception ex) {
@@ -897,7 +885,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 
     public void mouseReleased(MouseEvent e) {
         //display message when mouse is released
-        msg = "You released the mouse";
+        //msg = "You released the mouse";
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -915,18 +903,18 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     //mouse motion listener
     public void mouseDragged(MouseEvent e) {
         //display message when mouse is dragged
-        msg = "You are dragging the mouse";
+        //msg = "You are dragging the mouse";
     }
 
     public void mouseMoved(MouseEvent e) {
         //display message when the mouse is moved
-        msg = "You are moving the mouse";
+        //msg = "You are moving the mouse";
     }
 
     //mouse wheel listener
     public void mouseWheelMoved(MouseWheelEvent e) {
         //display message when mouse wheel is moved
-        msg = "You are moving the mouse wheel";
+        //msg = "You are moving the mouse wheel";
     }
 	
 }

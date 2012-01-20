@@ -1,19 +1,11 @@
 package beta;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.MidiEvent;
-import javax.sound.midi.MidiMessage;
 import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
 public class SoundManager {
 	private File bassDrumDir, clickDir, doubleBassDir, pianoDir, snareDrumDir;
@@ -86,15 +78,6 @@ public class SoundManager {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		/**
-		try {
-			sample = AudioSystem.getAudioInputStream(new File("resources//Sounds//Bass Drum//A#3.mid"));
-			sound = AudioSystem.getClip();
-			sound.open(sample);
-		} catch(Exception e) {
-			
-		}
-		**/
 	}
 	
 	public void bassDrumAddNote(int note) {
@@ -227,24 +210,6 @@ public class SoundManager {
 				System.err.println(e.getMessage());
 			}
 		}
-		/**
-		for(int i = 0; i < sequencers.size(); i++) {
-			try {
-				sequencers.get(i).open();
-				sequencers.get(i).setTickPosition(0);
-				sequencers.get(i).start();
-				Thread.sleep(750);
-				sequencers.get(i).stop();
-				sequencers.get(i).close();
-				System.out.println(i);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		**/
-		//sq.stop();
-		//sq.setTickPosition(0);
-		//sq.start();
 	}
 	
 	/**
