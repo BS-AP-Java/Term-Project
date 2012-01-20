@@ -11,9 +11,9 @@ public class FileRW{
   
   private String fileName;
   
-  public FileRW(String x)
+  public FileRW()
   { 
-    fileName = x;
+    
   }
   
   public void setName(String x)

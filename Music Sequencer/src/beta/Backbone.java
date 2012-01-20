@@ -1,6 +1,12 @@
+//********************************************************************
+//Backbone.java      
+//Author: Kwun Chan and Nanyou Guan
+// 
+// 
+//********************************************************************
 package beta;
 
-
+//import the necessary classes 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -27,6 +33,7 @@ import javax.swing.JTextField;
 
 
 public class Backbone extends JLayeredPane implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
+	//declare instance variables for this class
 	public static boolean running;
 	protected Frame frame;
 	private JFrame f;
@@ -42,6 +49,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	private ButtonGroup group;
 	private JRadioButton rbPiano, rbDoubleBass, rbSnareDrum, rbBassDrum, rbClick; 
 	
+	//the constructor for the class
 	public Backbone() {
 	}
 	
@@ -66,8 +74,9 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     //sets up screen
     public void init() {
     	try {
+    		//Create a new SoundManager object
     		soundManager = new SoundManager();
-    		fileRW = new FileRW("nanyou");
+    		fileRW = new FileRW();
     		blackWidth = 48;
     		blackHeight = 140;
     		whiteWidth = 60;
