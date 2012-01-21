@@ -110,7 +110,6 @@ public class FileRW{
 	  String[] row4 = doubleBassRow2.split(":");
 	  String[] row5 = snareDrumRow.split(":");
 	  String[] row6 = bassDrumRow.split(":");
-	  String[] row7 = clickRow.split(":");
 	  for(String note : row1) {
 		  int num = Integer.parseInt(note);
 		  Integer noteNum = new Integer(num);
@@ -132,19 +131,20 @@ public class FileRW{
 		  SoundManager.piece.get(3).add(noteNum);
 	  }
 	  for(String note : row5) {
+		  Integer noteNum = new Integer(111);
 		  int num = Integer.parseInt(note);
-		  Integer noteNum = new Integer(num);
+		  if(num != 111) {
+			  noteNum = new Integer(0);
+		  }
 		  SoundManager.piece.get(4).add(noteNum);
 	  }
 	  for(String note : row6) {
+		  Integer noteNum = new Integer(111);
 		  int num = Integer.parseInt(note);
-		  Integer noteNum = new Integer(num);
+		  if(num != 111) {
+			  noteNum = new Integer(0);
+		  }
 		  SoundManager.piece.get(5).add(noteNum);
-	  }
-	  for(String note : row7) {
-		  int num = Integer.parseInt(note);
-		  Integer noteNum = new Integer(num);
-		  SoundManager.piece.get(6).add(noteNum);
 	  }
 	  //System.out.printf("%s\n%s\n%s\n", pianoRow1, pianoRow2, doubleBassRow1);
   }

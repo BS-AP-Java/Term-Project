@@ -51,7 +51,6 @@ public class SoundManager {
 		piece.add(new ArrayList<Integer>());
 		piece.add(new ArrayList<Integer>());
 		piece.add(new ArrayList<Integer>());
-		piece.add(new ArrayList<Integer>());
 		loadSounds();
 	}
 	
@@ -226,6 +225,16 @@ public class SoundManager {
 		new Thread(new Runnable() {
 			public void run() {
 				try {
+					for(int i = 0; i < piece.get(0).size(); i++) {
+						pianoPlay(piece.get(0).get(i).intValue());
+						piano2Play(piece.get(1).get(i).intValue());
+						doubleBassPlay(piece.get(2).get(i).intValue());
+						doubleBassPlay(piece.get(3).get(i).intValue());
+						snareDrumPlay(piece.get(4).get(i).intValue());
+						bassDrumPlay(piece.get(5).get(i).intValue());
+						Thread.sleep(500);
+					}
+					/**
 					int longest = piece.get(0).size();
 					for(int i = 0; i < 8; i++) {
 						if(piece.get(i).size() >= longest) {
@@ -278,6 +287,7 @@ public class SoundManager {
 						Thread.sleep(750);
 					}
 					counter = 0;
+					**/
 				} catch(Exception e) {
 					
 				}
