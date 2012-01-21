@@ -24,6 +24,7 @@ public class FileRW{
   private JFileChooser fileChooser;
   private String file;
   private Scanner scanner;
+  private String x;
   
   //the constructor
   public FileRW()
@@ -56,40 +57,66 @@ public class FileRW{
   //
   *********************************/
   public void getFile() {
-	  try {
-		  UIManager.put("Synthetica.extendedFileChooser.sortEnabled", false);
-		  fileChooser = new JFileChooser();
-		  FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
-		  fileChooser.setFileFilter(filter);
-		  int returnVal = fileChooser.showOpenDialog(null);
-		  if(returnVal == JFileChooser.APPROVE_OPTION) {
-			  file = fileChooser.getSelectedFile().getPath();
-		  }
-		  if(file != null) {
-			  scanner = new Scanner(new File(file));
-		  }
-	  } catch (Exception e) {
-		e.printStackTrace();
+	   try {
+	    UIManager.put("Synthetica.extendedFileChooser.sortEnabled", false);
+	    //Instantiate a filechooser object
+	    fileChooser = new JFileChooser();
+	    //Filter it so that only text files show
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
+	    fileChooser.setFileFilter(filter);
+	    //pops up a open file dialog
+	    int returnVal = fileChooser.showOpenDialog(null);
+	    //if file is selected get the selected file and its path
+	    if(returnVal == JFileChooser.APPROVE_OPTION) {
+	     file = fileChooser.getSelectedFile().getPath();
+	    }
+	    //if file does not exist then create a new file
+	    if(file != null) {
+	     scanner = new Scanner(new File(file));
+	    }
+	   } catch (Exception e) {
+	  e.printStackTrace();
+	   }
 	  }
-  }
   
   /**********************************
-  //Method Name: public void writeFile()
-  //Creates a new file for the program
+  //Method Name: public void getWhereSave()
+  //Sets the directory where the user wants to save the file 
   //
   *********************************/
-  public void writeFile() throws IOException
-  { //Create a new filewriter object
-    FileWriter y = new FileWriter("C:/Users/Kwun/Desktop"+ fileName + ".txt");
-    //Create a new BufferedWriter object for increased efficiency
-    BufferedWriter x = new BufferedWriter(y);
-    //Create a new printwriter object
-    PrintWriter z = new PrintWriter(x);
-    
-    z.print("la la la la ala ala alalal" + "\n afdfasdfadf");
-    //close the file when done
-    z.close();
-  }
+  public String getWhereSave(){
+	   //Instantiate a filechooser object
+	  fileChooser = new JFileChooser();
+	  //pops open a save file dialog
+	  int returnVal = fileChooser.showSaveDialog(null);
+	  if(returnVal == JFileChooser.APPROVE_OPTION){
+	   File file = fileChooser.getSelectedFile();
+	   x = file.getAbsolutePath();
+	  }
+	  else
+	  { 
+	   x = null;
+	  }
+	  return x;
+	  }
+
+	  /**********************************
+	  //Method Name: public void writeFile()
+	  //Creates a new file for the program
+	  //
+	  *********************************/
+	  public void writeFile() throws IOException
+	  { 
+	 //Create a new filewriter object
+	    FileWriter y = new FileWriter( x + ".txt");
+	    //Create a new BufferedWriter object for increased efficiency
+	    BufferedWriter x = new BufferedWriter(y);
+	    //Create a new printwriter object
+	    PrintWriter z = new PrintWriter(x);
+	    z.println();
+	    //close the file when done
+	    z.close();
+	  }
   
   /**********************************
   //Method Name: public void readFile()

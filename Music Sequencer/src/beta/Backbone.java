@@ -20,6 +20,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -650,58 +651,84 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(w14, 0, -1);
 	        ///////////////////////////////////////////////////////////////
 	        
-    		icon = new ImageIcon("resources//Images//save.png");
-    		save = new JButton(icon);
-    		save.setBounds(65, 0, 50, 50);
-    		save.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                }
-            });
-    		icon = new ImageIcon("resources//Images//open file.png");
-    		open = new JButton(icon);
-    		open.setBounds(0, 0, 50, 50);
-    		open.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e) {
-    				fileRW.getFile();
-    				fileRW.readFile();
-            	}
-            });
-    		icon = new ImageIcon("resources//Images//play button.png");
-    		play = new JButton(icon);
-    		play.setBounds(370, 0, 50, 50);
-    		play.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e) {
-    				soundManager.play();
-                }
-            });
-    		icon = new ImageIcon("resources//Images//pause button.png");
-    		pause = new JButton(icon);
-    		pause.setBounds(440, 0, 50, 50);
-    		pause.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e) {
-                }
-            });
-    		icon = new ImageIcon("resources//Images//stop.png");
-    		stop = new JButton(icon);
-    		stop.setBounds(510, 0, 50, 50);
-    		stop.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e) {
-                }
-            });
-    		credits = new JButton("About");
-    		credits.setBounds(885, 0, 74, 21);
-    		credits.addActionListener(new ActionListener() {
-    			public void actionPerformed(ActionEvent e) {
-                	JFrame credit = new JFrame("Credits");
-                	credit.setResizable(false);
-                	credit.setAlwaysOnTop(true);
-                	credit.setBounds(682, 380, 210, 125);
-                	JLabel about = new JLabel("Created by Nanyou Guan and Kwun Chan");
-                	credit.add(about);
-                	credit.setVisible(true);
-                	credit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    			}
-    		});
+	        //Create an Imageicon for the save button
+	        icon = new ImageIcon("resources//Images//save.png");
+	      //create the save button and set the size and position
+	        save = new JButton(icon);
+	        save.setBounds(65, 0, 50, 50);
+	        save.addActionListener(new ActionListener() {
+	                  public void actionPerformed(ActionEvent e) {
+	                   try {
+	        fileRW.writeFile();
+	       } catch (IOException e1) {
+	        e1.printStackTrace();
+	       }
+	                  }
+	              });
+	        //Create an ImageIcon for the open button
+	        icon = new ImageIcon("resources//Images//open file.png");
+	        //Create the open button and set the size and position
+	        open = new JButton(icon);
+	        open.setBounds(0, 0, 50, 50);
+	        open.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	          //Call the getFile method and readFileMethod
+	          fileRW.getFile();
+	          fileRW.readFile();
+	               }
+	              });
+	        //Create an ImageIcon for the play button
+	        icon = new ImageIcon("resources//Images//play button.png");
+	        //create the play button and set size and positon
+	        play = new JButton(icon);
+	        play.setBounds(370, 0, 50, 50);
+	        play.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	          //call the play method
+	          soundManager.play();
+	                  }
+	              });
+	        //Create an ImageIcon for the pause button
+	        icon = new ImageIcon("resources//Images//pause button.png");
+	        //create the pause button and set size and positon
+	        pause = new JButton(icon);
+	        pause.setBounds(440, 0, 50, 50);
+	        pause.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	                  }
+	              });
+	        //Create an ImageIcon for the stop button
+	        icon = new ImageIcon("resources//Images//stop.png");
+	        //create the stop button and set size and positon
+	        stop = new JButton(icon);
+	        stop.setBounds(510, 0, 50, 50);
+	        stop.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	                  }
+	              });
+	        //create the credit button and set size and positon
+	        credits = new JButton("About");
+	        credits.setBounds(885, 0, 74, 21);
+	        credits.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+	                   //When the button is pressed create a new frame  
+	                   JFrame credit = new JFrame("Credits");
+	                   //set it so it can not be resized
+	                   credit.setResizable(false);
+	                   //set it so it is always on top
+	                   credit.setAlwaysOnTop(true);
+	                   //set the position and size
+	                   credit.setBounds(682, 380, 210, 125);
+	                   //create a jlabel saying Created by Nanyou Guan and Kwun Chan
+	                   JLabel about = new JLabel("Created by Nanyou Guan and Kwun Chan");
+	                   //add the jlabel in
+	                   credit.add(about);
+	                   //set the frame to be visible
+	                   credit.setVisible(true);
+	                   //set it so when you close the window you end that frame
+	                   credit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	         }
+	        });
     		////////////////////////////////////////////////////////////////
     		//Create text fields for the user to type in the note and set the size and position of them
     		textField = new JTextField();
