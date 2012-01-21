@@ -113,7 +113,18 @@ public class FileRW{
 	    BufferedWriter x = new BufferedWriter(y);
 	    //Create a new printwriter object
 	    PrintWriter z = new PrintWriter(x);
-	    z.println();
+	    String row1 = Backbone.textField.getText();
+	    String row2 = Backbone.textField_1.getText();
+	    String row3 = Backbone.textField_2.getText();
+	    String row4 = Backbone.textField_3.getText();
+	    String row5 = Backbone.textField_4.getText();
+	    String row6 = Backbone.textField_5.getText();
+	    z.println(row1);
+	    z.println(row2);
+	    z.println(row3);
+	    z.println(row4);
+	    z.println(row5);
+	    z.println(row6);
 	    //close the file when done
 	    z.close();
 	  }
@@ -172,9 +183,11 @@ public class FileRW{
 		  }
 		  SoundManager.piece.get(5).add(noteNum);
 	  }
-	  //System.out.printf("%s\n%s\n%s\n", pianoRow1, pianoRow2, doubleBassRow1);
+	  Backbone.textField.setText(pianoRow1);
+	  Backbone.textField_1.setText(pianoRow1);
+	  Backbone.textField_2.setText(pianoRow2);
+	  Backbone.textField_3.setText(doubleBassRow1);
+	  Backbone.textField_4.setText(doubleBassRow2);
+	  Backbone.textField_5.setText(snareDrumRow);
   }
-  
 }
-   
-   

@@ -107,43 +107,6 @@ public class SoundManager {
 		}
 	}
 	
-	/**
-	public void bassDrumAddNote(int note) {
-		Integer num = new Integer(note);
-		bassDrumRow.add(num);
-	}
-	
-	public void clickAddNote(int note) {
-		Integer num = new Integer(note);
-		clickRow.add(num);
-	}
-	
-	public void doubleBassAddNote(int note) {
-		Integer num = new Integer(note);
-		doubleBassRow.add(num);
-	}
-	
-	public void doubleBass2AddNote(int note) {
-		Integer num = new Integer(note);
-		doubleBassRow2.add(num);
-	}
-	
-	public void pianoAddNote(int note) {
-		Integer num = new Integer(note);
-		pianoRow.add(num);
-	}
-	
-	public void piano2AddNote(int note) {
-		Integer num = new Integer(note);
-		pianoRow2.add(num);
-	}
-	
-	public void snareDrumAddNote(int note) {
-		Integer num = new Integer(note);
-		snareDrumRow.add(num);
-	}
-	**/
-	
 	public void bassDrumPlay(int note) {
 		try {
 			bassDrumSequencer.stop();
