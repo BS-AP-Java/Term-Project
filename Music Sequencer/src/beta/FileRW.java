@@ -103,7 +103,6 @@ public class FileRW{
 	  String doubleBassRow2 = scanner.nextLine();
 	  String snareDrumRow = scanner.nextLine();
 	  String bassDrumRow = scanner.nextLine();
-	  String clickRow = scanner.nextLine();
 	  String[] row1 = pianoRow1.split(":");
 	  String[] row2 = pianoRow2.split(":");
 	  String[] row3 = doubleBassRow1.split(":");
