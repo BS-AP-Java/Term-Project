@@ -84,7 +84,7 @@ public class FileRW{
   //Sets the directory where the user wants to save the file 
   //
   *********************************/
-  public String getWhereSave(){
+  public String getWhereSave() {
 	   //Instantiate a filechooser object
 	  fileChooser = new JFileChooser();
 	  //pops open a save file dialog

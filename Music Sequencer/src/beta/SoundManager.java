@@ -197,82 +197,11 @@ public class SoundManager {
 						bassDrumPlay(piece.get(5).get(i).intValue());
 						Thread.sleep(500);
 					}
-					/**
-					int longest = piece.get(0).size();
-					for(int i = 0; i < 8; i++) {
-						if(piece.get(i).size() >= longest) {
-							longest = piece.get(i).size();
-						}
-					}
-					for(int i = counter; i < longest; i++) {
-						if(piece.get(0).get(i) != null) {
-							int num = piece.get(0).get(i).intValue();
-							if(num != 111) {
-								pianoPlay(num);
-							}
-						}
-						if(piece.get(1).get(i) != null) {
-							int num = piece.get(1).get(i).intValue();
-							if(num != 111) {
-								piano2Play(num);
-							}
-						}
-						if(piece.get(2).get(i) != null) {
-							int num = piece.get(2).get(i).intValue();
-							if(num != 111) {
-								doubleBassPlay(num);
-							}
-						}
-						if(piece.get(3).get(i) != null) {
-							int num = piece.get(3).get(i).intValue();
-							if(num != 111) {
-								doubleBass2Play(num);
-							}
-						}
-						if(piece.get(4).get(i) != null) {
-							int num = piece.get(4).get(i).intValue();
-							if(num != 111) {
-								snareDrumPlay(0);
-							}
-						}
-						if(piece.get(5).get(i) != null) {
-							int num = piece.get(5).get(i).intValue();
-							if(num != 111) {
-								bassDrumPlay(0);
-							}
-						}
-						if(piece.get(6).get(i) != null) {
-							int num = piece.get(6).get(i).intValue();
-							if(num != 111) {
-								clickPlay(0);
-							}
-						}
-						Thread.sleep(750);
-					}
-					counter = 0;
-					**/
 				} catch(Exception e) {
 					
 				}
 			}
 		}).start();
-		/**
-		 * use this method!
-		 * there can only be 16 sequencers because of the 16 channels in midi!
-		 * reuse the sequencer like in this method to play another sound
-		 /
-		for(int i = 0; i < pianoSequences.size(); i++) {
-			try {
-				pianoSequencer.stop();
-				pianoSequencer.setSequence(pianoSequences.get(i));
-				pianoSequencer.setTickPosition(0);
-				pianoSequencer.start();
-				Thread.sleep(750);
-			} catch(Exception e) {
-				System.err.println(e.getMessage());
-			}
-		}
-		**/
 	}
 	
 	/**
