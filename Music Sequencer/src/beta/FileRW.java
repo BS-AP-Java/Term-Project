@@ -107,7 +107,7 @@ public class FileRW{
 	  *********************************/
 	  public void writeFile() throws IOException
 	  { 
-	 //Create a new filewriter object
+	    //Create a new filewriter object
 	    FileWriter y = new FileWriter( x + ".txt");
 	    //Create a new BufferedWriter object for increased efficiency
 	    BufferedWriter x = new BufferedWriter(y);

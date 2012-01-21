@@ -657,14 +657,13 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        save = new JButton(icon);
 	        save.setBounds(65, 0, 50, 50);
 	        save.addActionListener(new ActionListener() {
-	                  public void actionPerformed(ActionEvent e) {
-	                   try {
+	        public void actionPerformed(ActionEvent e) {
+	         try {
+	        fileRW.getWhereSave();
 	        fileRW.writeFile();
 	       } catch (IOException e1) {
 	        e1.printStackTrace();
-	       }
-	                  }
-	              });
+	       }}});
 	        //Create an ImageIcon for the open button
 	        icon = new ImageIcon("resources//Images//open file.png");
 	        //Create the open button and set the size and position
