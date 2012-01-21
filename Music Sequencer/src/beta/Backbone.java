@@ -648,51 +648,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(w13, 0, -1);
 	        this.add(w14, 0, -1);
 	        ///////////////////////////////////////////////////////////////
-	        /**
-	        for (int i = 0; i < maxBlack; i++) {
-		        if (i == 3 || i == 6 || i == 10 || i ==13) {
-		            continue;
-		        }
-		        JButton b = new JButton();
-		        b.setBackground(Color.BLACK);
-		        b.setLocation(i*(whiteWidth) + (blackWidth*3/4), 250);
-		        b.setSize(blackWidth, blackHeight);
-
-		        this.add(b, 1, -1);
-		    }
-	        for (int i = 1; i < maxWhite; i++) {
-		        JButton b = new JButton();
-		        b.setBackground(Color.WHITE);
-		        b.setLocation(i * whiteWidth, 250);
-		        b.setSize(whiteWidth, whiteHeight);
-
-		        this.add(b, 0, -1);
-		    }
-		    **/
-	        /**
-	        for (int i = 0; i < maxBlack; i++) {
-		        int j = i % 7;
-		        if (j == 2 || j == 6)
-		            continue;
-
-		        JButton b = new JButton();
-		        b.setBackground(Color.BLACK);
-		        b.setLocation(i*(whiteWidth) + (blackWidth*3/4), 300);
-		        b.setSize(blackWidth, blackHeight);
-
-		        this.add(b, 1, -1);
-		    }
-	        
-	        for (int i = 0; i < maxWhite; i++) {
-		        JButton b = new JButton();
-		        b.setBackground(Color.WHITE);
-		        b.setLocation(i * whiteWidth, 300);
-		        b.setSize(whiteWidth, whiteHeight);
-
-		        this.add(b, 0, -1);
-		    }
-		    **/
-	        ///////////////////////////////////////////////////////////////
 	        
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
@@ -707,6 +662,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		open.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
     				fileRW.getFile();
+    				fileRW.readFile();
             	}
             });
     		icon = new ImageIcon("resources//Images//play button.png");
@@ -714,6 +670,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		play.setBounds(370, 0, 50, 50);
     		play.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
+    				soundManager.play();
                 }
             });
     		icon = new ImageIcon("resources//Images//pause button.png");
@@ -731,8 +688,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
                 }
             });
     		credits = new JButton("About");
-    		//credits.putClientProperty("Synthetica.background", Color.RED);
-    		//credits.putClientProperty("Synthetica.background.alpha", 0.20f);
     		credits.setBounds(885, 0, 74, 21);
     		credits.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
@@ -853,7 +808,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         }
     }
 
-    //update animation
+    //update based on time passed
     public void update(long timePassed) {
     	
     }

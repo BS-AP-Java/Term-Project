@@ -79,15 +79,57 @@ public class FileRW{
   }
   
   public void readFile() {
-	  String pianoRow1 = scanner.next();
-	  String pianoRow2 = scanner.next();
-	  String doubleBassRow1 = scanner.next();
-	  String doubleBassRow2 = scanner.next();
-	  String snareDrumRow = scanner.next();
-	  String bassDrumRow = scanner.next();
-	  String clickRow = scanner.next();
+	  String pianoRow1 = scanner.nextLine();
+	  String pianoRow2 = scanner.nextLine();
+	  String doubleBassRow1 = scanner.nextLine();
+	  String doubleBassRow2 = scanner.nextLine();
+	  String snareDrumRow = scanner.nextLine();
+	  String bassDrumRow = scanner.nextLine();
+	  String clickRow = scanner.nextLine();
+	  String[] row1 = pianoRow1.split(":");
+	  String[] row2 = pianoRow2.split(":");
+	  String[] row3 = doubleBassRow1.split(":");
+	  String[] row4 = doubleBassRow2.split(":");
+	  String[] row5 = snareDrumRow.split(":");
+	  String[] row6 = bassDrumRow.split(":");
+	  String[] row7 = clickRow.split(":");
+	  for(String note : row1) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(0).add(noteNum);
+	  }
+	  for(String note : row2) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(1).add(noteNum);
+	  }
+	  for(String note : row3) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(2).add(noteNum);
+	  }
+	  for(String note : row4) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(3).add(noteNum);
+	  }
+	  for(String note : row5) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(4).add(noteNum);
+	  }
+	  for(String note : row6) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(5).add(noteNum);
+	  }
+	  for(String note : row7) {
+		  int num = Integer.parseInt(note);
+		  Integer noteNum = new Integer(num);
+		  SoundManager.piece.get(6).add(noteNum);
+	  }
+	  //System.out.printf("%s\n%s\n%s\n", pianoRow1, pianoRow2, doubleBassRow1);
   }
-  
   
 }
    

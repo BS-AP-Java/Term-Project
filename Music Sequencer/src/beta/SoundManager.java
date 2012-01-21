@@ -18,12 +18,15 @@ public class SoundManager {
 	//declare instance variables for this class
 	private File bassDrumDir, clickDir, doubleBassDir, pianoDir, snareDrumDir;
 	private File[] bassDrumFiles, clickFiles, doubleBassFiles, pianoFiles, snareDrumFiles;
-	private Sequencer bassDrumSequencer, clickSequencer, doubleBassSequencer, pianoSequencer, snareDrumSequencer;
+	private Sequencer bassDrumSequencer, clickSequencer, doubleBassSequencer, doubleBassSequencer2, pianoSequencer, pianoSequencer2, snareDrumSequencer;
 	private ArrayList<Sequence> bassDrumSequences, clickSequences, doubleBassSequences, pianoSequences, snareDrumSequences;
-	private ArrayList<Integer> bassDrumRow, clickRow, doubleBassRow, pianoRow, snareDrumRow;
+	public static ArrayList<Integer> bassDrumRow, clickRow, doubleBassRow, doubleBassRow2, pianoRow, pianoRow2, snareDrumRow;
+	public static ArrayList<ArrayList<Integer>> piece;
+	public static int counter;
 	
 	//Constructs a new SoundManager object
 	public SoundManager() {
+		counter = 0;
 		bassDrumDir = new File("resources//Sounds//Bass Drum");
 		clickDir = new File("resources//Sounds//Click");
 		doubleBassDir = new File("resources//Sounds//Double Bass");
@@ -37,8 +40,18 @@ public class SoundManager {
 		bassDrumRow = new ArrayList<Integer>();
 		clickRow = new ArrayList<Integer>();
 		doubleBassRow = new ArrayList<Integer>();
+		doubleBassRow2 = new ArrayList<Integer>();
 		pianoRow = new ArrayList<Integer>();
+		pianoRow2 = new ArrayList<Integer>();
 		snareDrumRow = new ArrayList<Integer>();
+		piece = new ArrayList<ArrayList<Integer>>();
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
+		piece.add(new ArrayList<Integer>());
 		loadSounds();
 	}
 	
@@ -72,23 +85,30 @@ public class SoundManager {
 			bassDrumSequencer = MidiSystem.getSequencer();
 			clickSequencer = MidiSystem.getSequencer();
 			doubleBassSequencer = MidiSystem.getSequencer();
+			doubleBassSequencer2 = MidiSystem.getSequencer();
 			pianoSequencer = MidiSystem.getSequencer();
+			pianoSequencer2 = MidiSystem.getSequencer();
 			snareDrumSequencer = MidiSystem.getSequencer();
 			bassDrumSequencer.open();
 			clickSequencer.open();
 			doubleBassSequencer.open();
+			doubleBassSequencer2.open();
 			pianoSequencer.open();
+			pianoSequencer2.open();
 			snareDrumSequencer.open();
 			bassDrumSequencer.setSequence(bassDrumSequences.get(0));
 			clickSequencer.setSequence(clickSequences.get(0));
 			doubleBassSequencer.setSequence(doubleBassSequences.get(0));
+			doubleBassSequencer2.setSequence(doubleBassSequences.get(0));
 			pianoSequencer.setSequence(pianoSequences.get(0));
+			pianoSequencer2.setSequence(pianoSequences.get(0));
 			snareDrumSequencer.setSequence(snareDrumSequences.get(0));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	/**
 	public void bassDrumAddNote(int note) {
 		Integer num = new Integer(note);
 		bassDrumRow.add(num);
@@ -104,16 +124,26 @@ public class SoundManager {
 		doubleBassRow.add(num);
 	}
 	
+	public void doubleBass2AddNote(int note) {
+		Integer num = new Integer(note);
+		doubleBassRow2.add(num);
+	}
+	
 	public void pianoAddNote(int note) {
 		Integer num = new Integer(note);
 		pianoRow.add(num);
+	}
+	
+	public void piano2AddNote(int note) {
+		Integer num = new Integer(note);
+		pianoRow2.add(num);
 	}
 	
 	public void snareDrumAddNote(int note) {
 		Integer num = new Integer(note);
 		snareDrumRow.add(num);
 	}
-	
+	**/
 	
 	public void bassDrumPlay(int note) {
 		try {
@@ -148,12 +178,34 @@ public class SoundManager {
 		}
 	}
 	
+	public void doubleBass2Play(int note) {
+		try {
+			doubleBassSequencer2.stop();
+			doubleBassSequencer2.setSequence(doubleBassSequences.get(note));
+			doubleBassSequencer2.setTickPosition(0);
+			doubleBassSequencer2.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
 	public void pianoPlay(int note) {
 		try {
 			pianoSequencer.stop();
 			pianoSequencer.setSequence(pianoSequences.get(note));
 			pianoSequencer.setTickPosition(0);
 			pianoSequencer.start();
+		} catch(Exception e) {
+			
+		}
+	}
+	
+	public void piano2Play(int note) {
+		try {
+			pianoSequencer2.stop();
+			pianoSequencer2.setSequence(pianoSequences.get(note));
+			pianoSequencer2.setTickPosition(0);
+			pianoSequencer2.start();
 		} catch(Exception e) {
 			
 		}
@@ -170,45 +222,72 @@ public class SoundManager {
 		}
 	}
 	
-	public void play(String instrument, int note) {
-		try {
-			if(instrument.equals("bassDrum")) {
-				bassDrumSequencer.stop();
-				bassDrumSequencer.setSequence(bassDrumSequences.get(note));
-				bassDrumSequencer.setTickPosition(0);
-				bassDrumSequencer.start();
-			} else if(instrument.equals("click")) {
-				clickSequencer.stop();
-				clickSequencer.setSequence(clickSequences.get(note));
-				clickSequencer.setTickPosition(0);
-				clickSequencer.start();
-			} else if(instrument.equals("doubleBass")) {
-				doubleBassSequencer.stop();
-				doubleBassSequencer.setSequence(doubleBassSequences.get(note));
-				doubleBassSequencer.setTickPosition(0);
-				doubleBassSequencer.start();
-			} else if(instrument.equals("piano")) {
-				pianoSequencer.stop();
-				pianoSequencer.setSequence(pianoSequences.get(note));
-				pianoSequencer.setTickPosition(0);
-				pianoSequencer.start();
-			} else if(instrument.equals("snareDrum")) {
-				snareDrumSequencer.stop();
-				snareDrumSequencer.setSequence(snareDrumSequences.get(note));
-				snareDrumSequencer.setTickPosition(0);
-				snareDrumSequencer.start();
+	public synchronized void play() {
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					int longest = piece.get(0).size();
+					for(int i = 0; i < 8; i++) {
+						if(piece.get(i).size() >= longest) {
+							longest = piece.get(i).size();
+						}
+					}
+					for(int i = counter; i < longest; i++) {
+						if(piece.get(0).get(i) != null) {
+							int num = piece.get(0).get(i).intValue();
+							if(num != 111) {
+								pianoPlay(num);
+							}
+						}
+						if(piece.get(1).get(i) != null) {
+							int num = piece.get(1).get(i).intValue();
+							if(num != 111) {
+								piano2Play(num);
+							}
+						}
+						if(piece.get(2).get(i) != null) {
+							int num = piece.get(2).get(i).intValue();
+							if(num != 111) {
+								doubleBassPlay(num);
+							}
+						}
+						if(piece.get(3).get(i) != null) {
+							int num = piece.get(3).get(i).intValue();
+							if(num != 111) {
+								doubleBass2Play(num);
+							}
+						}
+						if(piece.get(4).get(i) != null) {
+							int num = piece.get(4).get(i).intValue();
+							if(num != 111) {
+								snareDrumPlay(0);
+							}
+						}
+						if(piece.get(5).get(i) != null) {
+							int num = piece.get(5).get(i).intValue();
+							if(num != 111) {
+								bassDrumPlay(0);
+							}
+						}
+						if(piece.get(6).get(i) != null) {
+							int num = piece.get(6).get(i).intValue();
+							if(num != 111) {
+								clickPlay(0);
+							}
+						}
+						Thread.sleep(750);
+					}
+					counter = 0;
+				} catch(Exception e) {
+					
+				}
 			}
-		} catch(Exception e) {
-			
-		}
-	}
-	
-	public void play() {
+		}).start();
 		/**
 		 * use this method!
 		 * there can only be 16 sequencers because of the 16 channels in midi!
 		 * reuse the sequencer like in this method to play another sound
-		 */
+		 /
 		for(int i = 0; i < pianoSequences.size(); i++) {
 			try {
 				pianoSequencer.stop();
@@ -220,6 +299,7 @@ public class SoundManager {
 				System.err.println(e.getMessage());
 			}
 		}
+		**/
 	}
 	
 	/**
