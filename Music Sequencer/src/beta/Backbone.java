@@ -179,9 +179,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b2.addActionListener(new ActionListener() {
@@ -194,9 +192,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b3.addActionListener(new ActionListener() {
@@ -209,9 +205,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b4.addActionListener(new ActionListener() {
@@ -224,9 +218,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b5.addActionListener(new ActionListener() {
@@ -239,9 +231,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b6.addActionListener(new ActionListener() {
@@ -254,9 +244,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b7.addActionListener(new ActionListener() {
@@ -269,9 +257,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b8.addActionListener(new ActionListener() {
@@ -284,9 +270,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b9.addActionListener(new ActionListener() {
@@ -299,9 +283,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b10.addActionListener(new ActionListener() {
@@ -314,9 +296,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        b11.addActionListener(new ActionListener() {
@@ -329,9 +309,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w1.addActionListener(new ActionListener() {
@@ -344,9 +322,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w2.addActionListener(new ActionListener() {
@@ -359,9 +335,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w3.addActionListener(new ActionListener() {
@@ -374,8 +348,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
 	        		}
                 }
             });
@@ -389,9 +361,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w5.addActionListener(new ActionListener() {
@@ -404,9 +374,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w6.addActionListener(new ActionListener() {
@@ -419,9 +387,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w7.addActionListener(new ActionListener() {
@@ -434,9 +400,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w8.addActionListener(new ActionListener() {
@@ -449,9 +413,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w9.addActionListener(new ActionListener() {
@@ -464,9 +426,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w10.addActionListener(new ActionListener() {
@@ -479,9 +439,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w11.addActionListener(new ActionListener() {
@@ -494,9 +452,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w12.addActionListener(new ActionListener() {
@@ -509,9 +465,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w13.addActionListener(new ActionListener() {
@@ -524,9 +478,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        w14.addActionListener(new ActionListener() {
@@ -539,9 +491,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        			soundManager.snareDrumPlay(0);
 	        		} else if(rbBassDrum.isSelected()) {
 	        			soundManager.bassDrumPlay(0);
-	        		} else if(rbClick.isSelected()) {
-	        			soundManager.clickPlay(0);
-	        		}
+	        		} 
                 }
             });
 	        ///////////////////////////////////////////////////////////////
