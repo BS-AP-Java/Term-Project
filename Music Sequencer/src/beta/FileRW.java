@@ -1,4 +1,12 @@
+//********************************************************************
+//FileRW.java      
+//Author: Kwun Chan and Nanyou Guan
+//Allows user to save files for the program and read the saved files
+// 
+//********************************************************************
 package beta;
+
+//import necessary classes
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -11,15 +19,15 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FileRW{
-  
+  //declare instance variables for this class
   private String fileName;
   private JFileChooser fileChooser;
   private String file;
   private Scanner scanner;
   
+  //the constructor
   public FileRW()
-  { 
-    
+  {   
   }
   
   public void setName(String x)
@@ -32,6 +40,11 @@ public class FileRW{
     return fileName;
   }
   
+  /**********************************
+  //Method Name: public void getFile()
+  //
+  //
+  *********************************/
   public void getFile() {
 	  try {
 		  UIManager.put("Synthetica.extendedFileChooser.sortEnabled", false);
@@ -50,6 +63,11 @@ public class FileRW{
 	  }
   }
   
+  /**********************************
+  //Method Name: public void writeFile()
+  //
+  //
+  *********************************/
   public void writeFile() throws IOException
   {
     FileWriter y = new FileWriter("C:/Users/Kwun/Desktop"+ fileName + ".txt");

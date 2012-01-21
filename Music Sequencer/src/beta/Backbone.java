@@ -53,13 +53,21 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	public Backbone() {
 	}
 	
-	//method to stop the program
+	/**********************************
+    //Method Name: public void stop()
+    //Method to stop the program
+    //
+    *********************************/
     public void stop() {
         //set running to false
         running = false;
     }
 
-    //method that calls init and gameLoop while program is running
+    /**********************************
+    //Method Name: public void run()
+    //method that calls init and mainLoop while program is running
+    //
+    *********************************/
     public void run() {
         try {
             //call the init method
@@ -71,13 +79,18 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         }
     }
 
-    //sets up screen
+    /**********************************
+    //Method Name: public void init()
+    //Sets up the screen 
+    //
+    *********************************/
     public void init() {
     	try {
     		//Create a new SoundManager object
     		soundManager = new SoundManager();
     		//create a new fileRW object
     		fileRW = new FileRW();
+    		//set the width and height of the black and white keys of the piano
     		blackWidth = 48;
     		blackHeight = 140;
     		whiteWidth = 60;
@@ -788,7 +801,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		this.add(lblSnareDrum);
     		this.add(lblBassDrum);
     		this.add(lblClick);
-    		soundManager = new SoundManager();
 	        this.add(open);
 	        this.add(save);
 	        this.add(play);
@@ -807,7 +819,11 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     	}
     }
 
-    //main loop that keeps program running
+    /**********************************
+    //Method Name: public void mainLoop()
+    //Main loop that keeps the program running
+    //
+    *********************************/
     public void mainLoop() {
         //get the current time when program starts
         long startTime = System.currentTimeMillis();
@@ -867,7 +883,11 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	
 	/////////////////////////////////////INPUT METHODS////////////////////////////////////////////////
 	
-	//method to override keyPressed method in keylistener
+	/**********************************
+    //Method Name: public void keyPressed(KeyEvent e)
+    //method to override keyPressed method in keylistener
+    //Parameters: KeyEvent e -
+    *********************************/
     public void keyPressed(KeyEvent e) {
         //stores keycode value of key pressed
         int keyCode = e.getKeyCode();
@@ -886,7 +906,11 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         }
     }
 
+    /**********************************
+    //Method Name: public void keyReleased(KeyEvent e)
     //method to override keyReleased method in keylistener
+    //Parameters: KeyEvent e -
+    *********************************/
     public void keyReleased(KeyEvent e) {
         //get the key code of the key released
         //int keyCode = e.getKeyCode();
@@ -897,14 +921,22 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         e.consume();
     }
 
+    /**********************************
+    //Method Name: public void keyTyped(KeyEvent e)
     //method to override keyTyped method in keylistener
+    //Parameters: KeyEvent e -
+    *********************************/
     public void keyTyped(KeyEvent e) {
         //makes the program not wait for other buttons to be pressed and uses the key
         //example of when the program waits for other buttons is when you do Ctrl+Alt+Delete)
     	e.consume();
     }
 
-    //mouse listener
+    /**********************************
+    //Method Name: public void keyTyped(KeyEvent e)
+    //Method to override mousePressed method in mouselistener
+    //Parameters: MouseEvent e- 
+    *********************************/
     public void mousePressed(MouseEvent e) {
         //display message when mouse is pressed
         //msg = "You pressed down the mouse";
