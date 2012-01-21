@@ -76,6 +76,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     	try {
     		//Create a new SoundManager object
     		soundManager = new SoundManager();
+    		//create a new fileRW object
     		fileRW = new FileRW();
     		blackWidth = 48;
     		blackHeight = 140;
@@ -84,35 +85,47 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        //construct screen object
 	        frame = new Frame(this);
 	        f = frame.getFrame();
+	        //set the frame to have no layout
 	        this.setLayout(null);
 	        //set font style, type, and size
 	        this.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-	        //set foreground color to white
+	        //set background color to colbalt blue
 	        this.setBackground(new Color(61, 89, 171));
+	        //Add a  key listener to the frame
 	        f.addKeyListener(this);
+	        //add mouse listeners to the frame
 	        f.addMouseListener(this);
+	        //add a mouse motion listener to the frame
 	        f.addMouseMotionListener(this);
+	        //add a mouse wheel listener to the frame
 	        f.addMouseWheelListener(this);
 	        ////////////////////////////////////////////////////////////////
+	        //create a jlabel saying select instrument to preview
 	        lblChoose = new JLabel("Select Instrument to preview:");
+	        //set the position and size of the jlabel
 	        lblChoose.setBounds(40, 515, 150, 26);
+	        //create radiobuttons to choose between the instruments to preview
 	        rbPiano = new JRadioButton("Piano", true);
 	        rbDoubleBass = new JRadioButton("Double Bass");
 	        rbSnareDrum = new JRadioButton("Snare Drum");
 	        rbBassDrum = new JRadioButton("Bass Drum");
 	        rbClick = new JRadioButton("Click");
+	        //create a new button group
 	        group = new ButtonGroup();
+	        //add the radiobuttons to the button group
 	        group.add(rbPiano);
 	        group.add(rbDoubleBass);
 	        group.add(rbSnareDrum);
 	        group.add(rbBassDrum);
 	        group.add(rbClick);
+	        //set sizes for the radiobuttons
 	        rbPiano.setBounds(200, 515, 55, 26);
 	        rbDoubleBass.setBounds(260, 515, 85, 26);
 	        rbSnareDrum.setBounds(350, 515, 85, 26);
 	        rbBassDrum.setBounds(440, 515, 80, 26);
 	        rbClick.setBounds(520, 515, 50, 26);
 	        ///////////////////////////////////////////////////////////////
+	        //create new JButtons for piano
 	        b1 = new JButton();
 	        b2 = new JButton(); 
 	        b3 = new JButton();
@@ -139,6 +152,12 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        w13 = new JButton();
 	        w14 = new JButton();
 	        ///////////////////////////////////////////////////////////////
+	        //add action Listeners to the buttons of the piano
+	        //if the piano radiobutton is selected set, when the buttons are pressed play the piano sound
+	        //if the double bass radiobutton is selected, when the buttons are pressed play the double bass sound
+	        //if the snare radio button is selected, when the buttons are pressed play the snare drum sound
+	        //if the bass radio button is selected, when the buttons are pressed play the bass drum sound
+	        //if the click radio button is selected, when the buttons are pressed play the click sound
 	        b1.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	        		if(rbPiano.isSelected()) {
@@ -661,6 +680,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 		    }
 		    **/
 	        ///////////////////////////////////////////////////////////////
+	        
     		icon = new ImageIcon("resources//Images//save.png");
     		save = new JButton(icon);
     		save.setBounds(65, 0, 50, 50);
@@ -713,6 +733,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     			}
     		});
     		////////////////////////////////////////////////////////////////
+    		//Create text fields for the user to type in the note and set the size and position of them
     		textField = new JTextField();
     		textField.setColumns(10);
     		textField.setBounds(100, 52, 800, 20);
@@ -735,6 +756,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		textField_6.setColumns(10);
     		textField_6.setBounds(100, 208, 800, 20);
     		////////////////////////////////////////////////////////////////
+    		//create jlabels to indicate which text field is for which instrument and set the sizes and positions
     		lblPiano = new JLabel("Piano");
     		lblPiano.setBounds(17, 54, 46, 14);
     		lblPiano_1 = new JLabel("Piano 2");
@@ -750,6 +772,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		lblClick = new JLabel("Click");
     		lblClick.setBounds(17, 210, 27, 14);
     		////////////////////////////////////////////////////////////////
+    		//add the textfields, buttons, radiobuttons, and labels to the frame
     		this.add(textField);
     		this.add(textField_1);
     		this.add(textField_2);
