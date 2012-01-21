@@ -1,5 +1,12 @@
+//********************************************************************
+//Frame.java      
+//Author: Kwun Chan and Nanyou Guan
+// Creates the frame for the GUI
+// 
+//********************************************************************
 package beta;
 
+//import necessary classes
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -8,6 +15,7 @@ import javax.swing.JLayeredPane;
 
 
 public class Frame {
+	//declare the instance variables for the class
 	public static boolean fullScreen;
 	public static int windowWidth, windowHeight, windowX, windowY;
 	public static JFrame jframe;

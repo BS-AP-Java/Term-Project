@@ -1,5 +1,12 @@
+//********************************************************************
+//SoundManager.java      
+//Author: Kwun Chan and Nanyou Guan
+// 
+// 
+//********************************************************************
 package beta;
 
+//import necessary classes
 import java.io.File;
 import java.util.ArrayList;
 
@@ -8,12 +15,14 @@ import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
 public class SoundManager {
+	//declare instance variables for this class
 	private File bassDrumDir, clickDir, doubleBassDir, pianoDir, snareDrumDir;
 	private File[] bassDrumFiles, clickFiles, doubleBassFiles, pianoFiles, snareDrumFiles;
 	private Sequencer bassDrumSequencer, clickSequencer, doubleBassSequencer, pianoSequencer, snareDrumSequencer;
 	private ArrayList<Sequence> bassDrumSequences, clickSequences, doubleBassSequences, pianoSequences, snareDrumSequences;
 	private ArrayList<Integer> bassDrumRow, clickRow, doubleBassRow, pianoRow, snareDrumRow;
-
+	
+	//Constructs a new SoundManager object
 	public SoundManager() {
 		bassDrumDir = new File("resources//Sounds//Bass Drum");
 		clickDir = new File("resources//Sounds//Click");
@@ -104,6 +113,7 @@ public class SoundManager {
 		Integer num = new Integer(note);
 		snareDrumRow.add(num);
 	}
+	
 	
 	public void bassDrumPlay(int note) {
 		try {
