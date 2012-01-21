@@ -39,7 +39,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	protected Frame frame;
 	private JFrame f;
 	private SoundManager soundManager;
-	private JButton stop, save, open, credits, play, pause;
+	private JButton save, open, credits, play, help;
 	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11;
 	private JButton w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14;
 	public static JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5;
@@ -637,6 +637,39 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	          soundManager.play();
 	                  }
 	         });
+	        //create help button
+	        help = new JButton("Help");
+	        help.setBounds(800, 0, 74, 21);
+	        help.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		                   //When the button is pressed create a new frame  
+		                   JFrame help = new JFrame("Help");
+		                   //set it so it can not be resized
+		                   help.setResizable(true);
+		                   //set it so it is always on top
+		                   help.setAlwaysOnTop(true);
+		                   //set the position and size
+		                   help.setBounds(682, 380, 400, 300);
+		                   //create a jlabel saying Created by Nanyou Guan and Kwun Chan
+		                   JLabel about = new JLabel("The Keys are referenced in numerical order from left to right");
+		                   about.setBounds(0, 0, 500, 30);
+		                   JLabel about1 = new JLabel("type in the note numbers for each row separated by : ex: 1:2:3:4");
+		                   about1.setBounds(0, 10, 500, 30);
+		                   JLabel about2 = new JLabel("111 is a rest");
+		                   about2.setBounds(0, 20, 500, 30);
+		                   JLabel about3 = new JLabel("save and open the file before playing it");
+		                   about3.setBounds(0, 30, 500, 30);
+		                   //add the jlabel in
+		                   help.add(about);
+		                   help.add(about1);
+		                   help.add(about2);
+		                   help.add(about3);
+		                   //set the frame to be visible
+		                   help.setVisible(true);
+		                   //set it so when you close the window you end that frame
+		                   help.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		         }
+		        });
 	        //create the credit button and set size and positon
 	        credits = new JButton("About");
 	        credits.setBounds(885, 0, 74, 21);
@@ -711,6 +744,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(open);
 	        this.add(save);
 	        this.add(play);
+	        this.add(help);
 	        this.add(credits);
 	        this.add(rbPiano);
 	        this.add(rbDoubleBass);
