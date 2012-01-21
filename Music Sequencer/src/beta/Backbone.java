@@ -547,6 +547,8 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
                 }
             });
 	        ///////////////////////////////////////////////////////////////
+	        //set the size and position of the buttons of the piano
+	        //set the color of the buttons to black or white to make it look like a piano
 	        b1.setBounds(36, 250, blackWidth, blackHeight);
 	        b1.putClientProperty("Synthetica.background", Color.BLACK);
     		b1.putClientProperty("Synthetica.background.alpha", 0.8f);
@@ -580,6 +582,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        b11.setBounds(876, 250, blackWidth, blackHeight);
 	        b11.putClientProperty("Synthetica.background", Color.BLACK);
     		b11.putClientProperty("Synthetica.background.alpha", 0.8f);
+    		//add the black keys in
 	        this.add(b1, 1, -1);
 	        this.add(b2, 1, -1);
 	        this.add(b3, 1, -1);
@@ -633,6 +636,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        w14.setBounds(840, 250, whiteWidth, whiteHeight);
 	        w14.putClientProperty("Synthetica.background", Color.WHITE);
     		w14.putClientProperty("Synthetica.background.alpha", 0.9f);
+    		//add the white keys in
 	        this.add(w1, 0, -1);
 	        this.add(w2, 0, -1);
 	        this.add(w3, 0, -1);
@@ -832,9 +836,14 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         //g.drawString(msg, 60, 60);
 	}
 	
-	public Dimension getPreferredSize() {
-        return new Dimension(Frame.windowWidth, Frame.windowHeight);
-     }
+    /**********************************
+    //Method Name: public Dimension getPreferredSize()
+    //Returns the dimension for the frame
+    //
+    *********************************/
+  public Dimension getPreferredSize() {
+    return new Dimension(Frame.windowWidth, Frame.windowHeight);
+  }
 	
 	/////////////////////////////////////INPUT METHODS////////////////////////////////////////////////
 	
@@ -903,38 +912,71 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
         }
     }
 
+    /**********************************
+    //Method Name: public void mouseReleased(MouseEvent e)
+    //Checks if the mouse button has been released
+    //Parameter; MouseEvent e-
+    *********************************/
     public void mouseReleased(MouseEvent e) {
-        //display message when mouse is released
-        //msg = "You released the mouse";
-    }
+    	//display message when mouse is released
+    	//msg = "You released the mouse";
+  	}	
 
-    public void mouseClicked(MouseEvent e) {
+  	/**********************************
+  	//Method Name: public void mouseClicked(MouseEvent e)
+  	//Checks if the mouse button has been clicked(pressed and released)
+  	//Parameter; MouseEvent e-
+   *********************************/
+  	public void mouseClicked(MouseEvent e) {
+  
+	}
 
-    }
+	/**********************************
+  	//Method Name: public void mouseEntered(MouseEvent e)
+  	//
+  	//Parameter; MouseEvent e-
+  	*********************************/
+	public void mouseEntered(MouseEvent e) {
+  
+	}
 
-    public void mouseEntered(MouseEvent e) {
+	/**********************************
+  	//Method Name: public void mouseExited(MouseEvent e)
+  	//
+  	//Parameter; MouseEvent e-
+	 *********************************/
+	public void mouseExited(MouseEvent e) {
+  
+	}
 
-    }
+	/**********************************
+  	//Method Name: public void mouseDragged(MouseEvent e)
+  	//Checks if the mouse is being dragged 
+  	//Parameter; MouseEvent e-
+	 *********************************/
+	public void mouseDragged(MouseEvent e) {
+		//display message when mouse is dragged
+		//msg = "You are dragging the mouse";
+	}
 
-    public void mouseExited(MouseEvent e) {
+	/**********************************
+  	//Method Name: public void mouseMoved(MouseEvent e)
+  	//Checks if the mouse is moved
+  	//Parameter; MouseEvent e-
+	 *********************************/
+	public void mouseMoved(MouseEvent e) {
+		//display message when the mouse is moved
+		//msg = "You are moving the mouse";
+	}
 
-    }
+	/**********************************
+  	//Method Name: public void mouseWheelMoved(MouseWheelEvent e)
+  	//Checks if the mouse wheel is moved
+  	//Parameter; MouseEvent e-
+	 *********************************/
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		//display message when mouse wheel is moved
+		//msg = "You are moving the mouse wheel";
+	}
 
-    //mouse motion listener
-    public void mouseDragged(MouseEvent e) {
-        //display message when mouse is dragged
-        //msg = "You are dragging the mouse";
-    }
-
-    public void mouseMoved(MouseEvent e) {
-        //display message when the mouse is moved
-        //msg = "You are moving the mouse";
-    }
-
-    //mouse wheel listener
-    public void mouseWheelMoved(MouseWheelEvent e) {
-        //display message when mouse wheel is moved
-        //msg = "You are moving the mouse wheel";
-    }
-	
 }

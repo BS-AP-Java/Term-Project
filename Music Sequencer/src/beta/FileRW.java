@@ -30,19 +30,29 @@ public class FileRW{
   {   
   }
   
+  /**********************************
+  //Method Name: public void setName(String x)
+  //Sets the name of the file
+  //Parameter: String x - the name to be set
+  *********************************/
   public void setName(String x)
-  {
+  {//set fileName to x
     fileName = x ;
   }
   
+  /**********************************
+  //Method Name: public void getName()
+  //Returns the fileName
+  //
+  *********************************/
   public String getName()
-  {
+  {//return fileName
     return fileName;
   }
   
   /**********************************
   //Method Name: public void getFile()
-  //
+  //Gets the file that will be read
   //
   *********************************/
   public void getFile() {
@@ -65,19 +75,27 @@ public class FileRW{
   
   /**********************************
   //Method Name: public void writeFile()
-  //
+  //Creates a new file for the program
   //
   *********************************/
   public void writeFile() throws IOException
-  {
+  { //Create a new filewriter object
     FileWriter y = new FileWriter("C:/Users/Kwun/Desktop"+ fileName + ".txt");
+    //Create a new BufferedWriter object for increased efficiency
     BufferedWriter x = new BufferedWriter(y);
+    //Create a new printwriter object
     PrintWriter z = new PrintWriter(x);
     
     z.print("la la la la ala ala alalal" + "\n afdfasdfadf");
+    //close the file when done
     z.close();
   }
   
+  /**********************************
+  //Method Name: public void readFile()
+  //Reads the file that is chosen by the user 
+  //and loads the file
+  *********************************/
   public void readFile() {
 	  String pianoRow1 = scanner.nextLine();
 	  String pianoRow2 = scanner.nextLine();
