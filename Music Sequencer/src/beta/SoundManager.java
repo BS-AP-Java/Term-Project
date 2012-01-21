@@ -22,11 +22,9 @@ public class SoundManager {
 	private ArrayList<Sequence> bassDrumSequences, clickSequences, doubleBassSequences, pianoSequences, snareDrumSequences;
 	public static ArrayList<Integer> bassDrumRow, clickRow, doubleBassRow, doubleBassRow2, pianoRow, pianoRow2, snareDrumRow;
 	public static ArrayList<ArrayList<Integer>> piece;
-	public static int counter;
 	
 	//Constructs a new SoundManager object
 	public SoundManager() {
-		counter = 0;
 		bassDrumDir = new File("resources//Sounds//Bass Drum");
 		clickDir = new File("resources//Sounds//Click");
 		doubleBassDir = new File("resources//Sounds//Double Bass");

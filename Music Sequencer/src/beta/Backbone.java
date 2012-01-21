@@ -680,31 +680,13 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        icon = new ImageIcon("resources//Images//play button.png");
 	        //create the play button and set size and positon
 	        play = new JButton(icon);
-	        play.setBounds(370, 0, 50, 50);
+	        play.setBounds((f.getWidth()/2)-25, 0, 50, 50);
 	        play.addActionListener(new ActionListener() {
 	         public void actionPerformed(ActionEvent e) {
 	          //call the play method
 	          soundManager.play();
 	                  }
-	              });
-	        //Create an ImageIcon for the pause button
-	        icon = new ImageIcon("resources//Images//pause button.png");
-	        //create the pause button and set size and positon
-	        pause = new JButton(icon);
-	        pause.setBounds(440, 0, 50, 50);
-	        pause.addActionListener(new ActionListener() {
-	         public void actionPerformed(ActionEvent e) {
-	                  }
-	              });
-	        //Create an ImageIcon for the stop button
-	        icon = new ImageIcon("resources//Images//stop.png");
-	        //create the stop button and set size and positon
-	        stop = new JButton(icon);
-	        stop.setBounds(510, 0, 50, 50);
-	        stop.addActionListener(new ActionListener() {
-	         public void actionPerformed(ActionEvent e) {
-	                  }
-	              });
+	         });
 	        //create the credit button and set size and positon
 	        credits = new JButton("About");
 	        credits.setBounds(885, 0, 74, 21);
@@ -779,8 +761,6 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
 	        this.add(open);
 	        this.add(save);
 	        this.add(play);
-	        this.add(pause);
-	        this.add(stop);
 	        this.add(credits);
 	        this.add(rbPiano);
 	        this.add(rbDoubleBass);
