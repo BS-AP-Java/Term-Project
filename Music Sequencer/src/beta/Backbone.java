@@ -693,6 +693,7 @@ public class Backbone extends JLayeredPane implements KeyListener, MouseMotionLi
     		open.setBounds(0, 0, 50, 50);
     		open.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
+    				fileRW.getFile();
             	}
             });
     		icon = new ImageIcon("resources//Images//play button.png");
